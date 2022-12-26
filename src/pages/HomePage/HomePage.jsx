@@ -15,7 +15,7 @@ function HomePage() {
   };
   return (
     <>
-      <DashboardHeader isSearch={isSearch} toggleSearch={toggleSearch}/>
+      <DashboardHeader isSearch={isSearch} toggleSearch={toggleSearch} toggleSidebar={handleViewSidebar}/>
       <SideBar isOpen={sidebarOpen} toggleSidebar={handleViewSidebar} />
     </>
   );

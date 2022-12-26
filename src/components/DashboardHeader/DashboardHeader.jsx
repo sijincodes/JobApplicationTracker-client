@@ -1,17 +1,18 @@
 import React from "react";
 import AddJob from "../AddJobButton/AddJob";
+import DashboardSideIcon from "../DashboardSideIcon/DashboardSideIcon";
 import SearchIcon from "../SearchIcon/SearchIcon";
 import SearchInput from "../SearchInput/SearchInput";
 
 import "./DashboardHeader.css";
 
-function DashboardHeader({isSearch,toggleSearch}) {
+function DashboardHeader({isSearch,toggleSearch,toggleSidebar}) {
 
   return (
     <>
       <div className="dashboardContainer">
         <div>
-          <span class="material-icons">menu</span>
+        <DashboardSideIcon toggleSidebar={toggleSidebar}/>
           <span>Dashboard Header</span>
         </div>
         <div className="dashboardInnerContainer">
