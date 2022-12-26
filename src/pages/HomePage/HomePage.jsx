@@ -1,10 +1,19 @@
+import React, { useState } from "react";
+import DashboardHeader from "../../components/DashboardHeader/DashboardHeader";
+import SideBar from "../../SideBar/SideBar";
+
 import "./HomePage.css";
 
 function HomePage() {
+  const [sidebarOpen, setSideBarOpen] = useState(false);
+  const handleViewSidebar = () => {
+    setSideBarOpen(!sidebarOpen);
+  };
   return (
-    <div>
-      <h1>Home page</h1>
-    </div>
+    <>
+      <DashboardHeader />
+      <SideBar isOpen={sidebarOpen} toggleSidebar={handleViewSidebar} />
+    </>
   );
 }
 

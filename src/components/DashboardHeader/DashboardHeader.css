@@ -1,0 +1,42 @@
+.dashboardContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+
+}
+
+.dashboardInnerContainer{
+    width: 50%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.searchContainer{
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+@media(max-width: 820px){
+    .dashboardContainer{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .dashboardInnerContainer{
+        display: flex;
+        flex-direction: column;
+        padding-top: 10px; 
+        width: 100%;
+    }
+    .buttonContainer{
+        padding-top: 5px;
+    }
+    .searchContainer{
+        padding-left: 100px;
+    }
+    .icon {
+        padding-left: 10px; 
+    }
+}
