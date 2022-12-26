@@ -1,40 +1,36 @@
-import React, { useState } from "react";
+import React from "react";
 import AddJob from "../AddJobButton/AddJob";
 import SearchIcon from "../SearchIcon/SearchIcon";
 import SearchInput from "../SearchInput/SearchInput";
 
 import "./DashboardHeader.css";
 
-function DashboardHeader() {
-  const [isSearch, setIsSearch] = useState(false);
-  const toggleSearch = () => {
-    setIsSearch(!isSearch);
-  };
+function DashboardHeader({isSearch,toggleSearch}) {
+
   return (
     <>
       <div className="dashboardContainer">
         <div>
+          <span class="material-icons">menu</span>
           <span>Dashboard Header</span>
         </div>
         <div className="dashboardInnerContainer">
-     
           {isSearch ? (
             <div className="searchContainer">
-            <SearchInput />
+              <SearchInput />
             </div>
           ) : (
             <div className="searchContainer icon">
-            <SearchIcon
-              handleClick={() => {
-                toggleSearch();
-              }}
-            />
+              <SearchIcon
+                handleClick={() => {
+                  toggleSearch();
+                }}
+              />
             </div>
           )}
-              <div className="buttonContainer">
-              <AddJob />
-              </div>
-          
+          <div className="buttonContainer">
+            <AddJob />
+          </div>
         </div>
       </div>
     </>

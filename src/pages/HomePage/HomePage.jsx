@@ -9,9 +9,13 @@ function HomePage() {
   const handleViewSidebar = () => {
     setSideBarOpen(!sidebarOpen);
   };
+  const [isSearch, setIsSearch] = useState(false);
+  const toggleSearch = () => {
+    setIsSearch(!isSearch);
+  };
   return (
     <>
-      <DashboardHeader />
+      <DashboardHeader isSearch={isSearch} toggleSearch={toggleSearch}/>
       <SideBar isOpen={sidebarOpen} toggleSidebar={handleViewSidebar} />
     </>
   );
