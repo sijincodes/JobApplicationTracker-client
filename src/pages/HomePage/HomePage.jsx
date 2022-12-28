@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import DashboardHeader from "../../components/DashboardHeader/DashboardHeader";
-import SideBar from "../../SideBar/SideBar";
+import SideBar from "../../components/SideBar/SideBar";
 
 import "./HomePage.css";
 

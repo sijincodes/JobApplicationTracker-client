@@ -4,6 +4,8 @@ import DashboardSideIcon from "../DashboardSideIcon/DashboardSideIcon";
 import SearchIcon from "../SearchIcon/SearchIcon";
 import SearchInput from "../SearchInput/SearchInput";
 
+
+
 import "./DashboardHeader.css";
 
 function DashboardHeader({isSearch,toggleSearch,toggleSidebar}) {
@@ -13,7 +15,7 @@ function DashboardHeader({isSearch,toggleSearch,toggleSidebar}) {
       <div className="dashboardContainer">
         <div>
         <DashboardSideIcon toggleSidebar={toggleSidebar}/>
-          <span>Dashboard Header</span>
+          {/* <span>Dashboard Header</span> */}
         </div>
         <div className="dashboardInnerContainer">
           {isSearch ? (

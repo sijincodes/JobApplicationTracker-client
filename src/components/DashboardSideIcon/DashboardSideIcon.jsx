@@ -1,11 +1,17 @@
-import React from 'react'
+import React from "react";
 
-function DashboardSideIcon({toggleSidebar}) {
+function DashboardSideIcon({ toggleSidebar }) {
   return (
     <>
-          <span class="material-icons" onClick={toggleSidebar} style={{cursor:"pointer"}}>menu</span>
+      <span
+        class="material-icons"
+        onClick={toggleSidebar}
+        style={{ cursor: "pointer" }}
+      >
+        menu
+      </span>
     </>
-  )
+  );
 }
 
-export default DashboardSideIcon
+export default DashboardSideIcon;
