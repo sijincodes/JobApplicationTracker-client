@@ -13,7 +13,7 @@ function DashboardHeader({isSearch,toggleSearch,toggleSidebar}) {
   return (
     <>
       <div className="dashboardContainer">
-        <div>
+        <div style={{paddingLeft: "15px"}}>
         <DashboardSideIcon toggleSidebar={toggleSidebar}/>
           {/* <span>Dashboard Header</span> */}
         </div>
