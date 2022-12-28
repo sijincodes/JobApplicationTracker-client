@@ -1,0 +1,40 @@
+
+.card {
+  background: #ACCDD8;
+  margin: 0.5rem 0;
+  border-radius: 0.25rem;
+}
+.card:hover {
+  background: #E1D7C6;
+}
+
+.heading {
+  font-size: 15px;
+ 
+}
+
+.desc {
+  margin: 15px 0;
+  font-size: 15px;
+}
+
+.button {
+  width: 100px;
+  height: 25px;
+  display: inline-block;
+  color: black;
+  font-size: 14px;
+ 
+  border: #579BB1 2px solid;
+  border-radius: 5px;
+  transition: 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #E1D7C6;
+}
+.button:hover {
+  width: 100%;
+  background: #ACCDD8;
+  color: black;
+}

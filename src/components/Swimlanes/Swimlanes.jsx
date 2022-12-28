@@ -1,4 +1,5 @@
 import React from 'react'
+import SwimlaneCard from '../SwimlaneCard/SwimlaneCard'
 
 import "./Swimlanes.css"
 
@@ -17,7 +18,7 @@ function Swimlanes() {
     </h6>
     <ul class="swimlanes__list">
     
-      <li class="swimlanes__listItem">Dummy content goes here</li>
+      <SwimlaneCard/>
       <li class="swimlanes__listItem">Dummy content goes here</li>
      
     </ul>
