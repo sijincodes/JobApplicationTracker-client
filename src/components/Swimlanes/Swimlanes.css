@@ -1,0 +1,46 @@
+/* NEW BLOCK: SWIMLANES
+- The elements have BEM classes because it's a new design pattern.
+- The h6 and A tags intentionally do not have a BEM name becuase we want them to inherit our application's default styles and they have no special styles of their own. */
+
+/* mobile first layout: Swimlanes are vertically stacked to begin with. */
+.swimlanes {
+    display: flex;
+    flex-direction: column;
+}
+      /* The swimlanes__column element groups the heading and the list */
+      .swimlanes__column {
+      min-width: 15rem; /* this is what makes the concept legible when there are many swimlanes */
+      flex: 1;  /* to keep everything equally sized */
+      background: #F2F2F3;  /* replace with casper color variable */
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+      margin: 0.5rem;
+  
+    }
+    
+    /*  nuke the ULs inherited margin and padding  */  
+    .swimlanes__list {
+      padding: 0;
+      margin: 0;
+    }
+    
+    /*  overwrite the LIs inherited list-style-type, margin and padding and add background and border-radius */
+    .swimlanes__listItem {
+      list-style-type: none;
+      margin: 0.5rem 0;
+      padding: 1rem;
+      background: #FFF;
+      border-radius: 0.25rem;
+    }
+  
+  
+  /* From 48rem and up we switch the flex-direction to row for horizontally stacked swimlanes */
+  @media (min-width: 48rem) {
+    .swimlanes {
+      flex-direction: row;
+      overflow-x: scroll;
+    }
+    .swimlanes__column {
+        min-height:45rem;
+    }
+  }
