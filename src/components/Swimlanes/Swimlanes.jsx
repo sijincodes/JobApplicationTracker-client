@@ -16,7 +16,6 @@ function Swimlanes() {
     }
 
     if (source.droppableId !== destination.droppableId) {
-      // using setJobData , find the object based on draggable id and update its status
       const updateJobData = [...jobData];
       updateJobData
         .filter((elm) => elm.id === draggableId)
@@ -25,6 +24,10 @@ function Swimlanes() {
       setJobData(updateJobData);
     }
   }
+
+  const getListStyle = (isDraggingOver) => ({
+    background: isDraggingOver ? "lightblue" : "#F2F2F3;",
+  });
   return (
     <>
       {/* 
@@ -37,13 +40,10 @@ function Swimlanes() {
               <div
                 className="swimlanes__column"
                 ref={provided.innerRef}
+                style={getListStyle(snapshot.isDraggingOver)}
                 {...provided.droppableProps}
-                
               >
-                <h6>
-                  {/* <!-- Heading structure [BoardName]: [ListName]. Where boardName links to the Board --> */}
-                  Applied
-                </h6>
+                <h6>Applied</h6>
                 <ul className="swimlanes__list">
                   {jobData
                     .filter((elm) => elm.status === "Applied")
@@ -62,7 +62,8 @@ function Swimlanes() {
                         )}
                       </Draggable>
                     ))}
-                </ul> {provided.placeholder}
+                </ul>{" "}
+                {provided.placeholder}
               </div>
             )}
           </Droppable>
@@ -71,6 +72,7 @@ function Swimlanes() {
               <div
                 className="swimlanes__column"
                 ref={provided.innerRef}
+                style={getListStyle(snapshot.isDraggingOver)}
                 {...provided.droppableProps}
               >
                 <h6>Technical Round</h6>
@@ -92,7 +94,8 @@ function Swimlanes() {
                         )}
                       </Draggable>
                     ))}
-                </ul>{provided.placeholder}
+                </ul>
+                {provided.placeholder}
               </div>
             )}
           </Droppable>
@@ -101,6 +104,7 @@ function Swimlanes() {
               <div
                 className="swimlanes__column"
                 ref={provided.innerRef}
+                style={getListStyle(snapshot.isDraggingOver)}
                 {...provided.droppableProps}
               >
                 <h6>Non Technical Round</h6>
@@ -122,7 +126,8 @@ function Swimlanes() {
                         )}
                       </Draggable>
                     ))}
-                </ul>{provided.placeholder}
+                </ul>
+                {provided.placeholder}
               </div>
             )}
           </Droppable>
@@ -131,13 +136,14 @@ function Swimlanes() {
               <div
                 className="swimlanes__column"
                 ref={provided.innerRef}
+                style={getListStyle(snapshot.isDraggingOver)}
                 {...provided.droppableProps}
               >
                 <h6>Rejected</h6>
                 <ul className="swimlanes__list">
                   {jobData
                     .filter((elm) => elm.status === "Rejected")
-                    .map((elm,index) => (
+                    .map((elm, index) => (
                       <Draggable
                         key={elm.id}
                         draggableId={elm.id}
@@ -152,7 +158,8 @@ function Swimlanes() {
                         )}
                       </Draggable>
                     ))}
-                </ul>{provided.placeholder}
+                </ul>
+                {provided.placeholder}
               </div>
             )}
           </Droppable>
@@ -161,13 +168,14 @@ function Swimlanes() {
               <div
                 className="swimlanes__column"
                 ref={provided.innerRef}
+                style={getListStyle(snapshot.isDraggingOver)}
                 {...provided.droppableProps}
               >
                 <h6>HR Round</h6>
                 <ul className="swimlanes__list">
                   {jobData
                     .filter((elm) => elm.status === "HR Round")
-                    .map((elm,index) => (
+                    .map((elm, index) => (
                       <Draggable
                         key={elm.id}
                         draggableId={elm.id}
@@ -182,7 +190,8 @@ function Swimlanes() {
                         )}
                       </Draggable>
                     ))}
-                </ul>{provided.placeholder}
+                </ul>
+                {provided.placeholder}
               </div>
             )}
           </Droppable>

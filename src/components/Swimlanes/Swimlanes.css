@@ -1,8 +1,4 @@
-/* NEW BLOCK: SWIMLANES
-- The elements have BEM classes because it's a new design pattern.
-- The h6 and A tags intentionally do not have a BEM name becuase we want them to inherit our application's default styles and they have no special styles of their own. */
 
-/* mobile first layout: Swimlanes are vertically stacked to begin with. */
 .swimlanes {
     display: flex;
     flex-direction: column;
@@ -24,7 +20,7 @@
       margin: 0;
     }
     
-    /*  overwrite the LIs inherited list-style-type, margin and padding and add background and border-radius */
+  
     .swimlanes__listItem {
       list-style-type: none;
       margin: 0.5rem 0;

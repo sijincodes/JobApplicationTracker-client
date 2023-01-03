@@ -5,7 +5,7 @@
   border-radius: 0.25rem;
 }
 .card:hover {
-  background: #E1D7C6;
+  background: #E1D7C6 !important;
 }
 
 .heading {
