@@ -3,10 +3,7 @@ import React from "react";
 import "./SwimlaneCard.css";
 
 function SwimlaneCard({ testData, provided, snapshot }) {
-  const dragStarted = (e, id) => {
-    console.log("drag started");
-    e.dataTransfer.setData("id", id);
-  };
+ 
   return (
     <>
       <div

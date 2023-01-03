@@ -6,13 +6,24 @@ import "./Swimlanes.css";
 import { testData } from "./../../Assets/testData";
 
 function Swimlanes() {
-  const [jobData, setjobData] = useState(testData);
+  const [jobData, setJobData] = useState(testData);
 
   function onDragEnd(result) {
     const { source, destination, draggableId } = result;
-    console.log("Jibu draggableId", draggableId);
-    console.log("Jibu source", source);
-    console.log("Jibu destination", destination);
+
+    if (!destination) {
+      return;
+    }
+
+    if (source.droppableId !== destination.droppableId) {
+      // using setJobData , find the object based on draggable id and update its status
+      const updateJobData = [...jobData];
+      updateJobData
+        .filter((elm) => elm.id === draggableId)
+        .map((elm) => (elm.status = destination.droppableId));
+
+      setJobData(updateJobData);
+    }
   }
   return (
     <>
@@ -27,6 +38,7 @@ function Swimlanes() {
                 className="swimlanes__column"
                 ref={provided.innerRef}
                 {...provided.droppableProps}
+                
               >
                 <h6>
                   {/* <!-- Heading structure [BoardName]: [ListName]. Where boardName links to the Board --> */}
@@ -38,8 +50,8 @@ function Swimlanes() {
                     .map((elm, index) => (
                       <Draggable
                         key={elm.id}
-                        draggableId={String(elm.id)}
-                        index={elm.id}
+                        draggableId={elm.id}
+                        index={index}
                       >
                         {(provided, snapshot) => (
                           <SwimlaneCard
@@ -50,7 +62,7 @@ function Swimlanes() {
                         )}
                       </Draggable>
                     ))}
-                </ul>
+                </ul> {provided.placeholder}
               </div>
             )}
           </Droppable>
@@ -68,8 +80,8 @@ function Swimlanes() {
                     .map((elm, index) => (
                       <Draggable
                         key={elm.id}
-                        draggableId={String(elm.id)}
-                        index={elm.id}
+                        draggableId={elm.id}
+                        index={index}
                       >
                         {(provided, snapshot) => (
                           <SwimlaneCard
@@ -80,11 +92,11 @@ function Swimlanes() {
                         )}
                       </Draggable>
                     ))}
-                </ul>
+                </ul>{provided.placeholder}
               </div>
             )}
           </Droppable>
-          {/* <Droppable droppableId="Non Technical Round">
+          <Droppable droppableId="Non Technical Round">
             {(provided, snapshot) => (
               <div
                 className="swimlanes__column"
@@ -95,14 +107,22 @@ function Swimlanes() {
                 <ul className="swimlanes__list">
                   {jobData
                     .filter((elm) => elm.status === "Non Technical Round")
-                    .map((elm, provided, snapshot) => (
-                      <SwimlaneCard
-                        testData={elm}
-                        provided={provided}
-                        snapshot={snapshot}
-                      />
+                    .map((elm, index) => (
+                      <Draggable
+                        key={elm.id}
+                        draggableId={elm.id}
+                        index={index}
+                      >
+                        {(provided, snapshot) => (
+                          <SwimlaneCard
+                            testData={elm}
+                            provided={provided}
+                            snapshot={snapshot}
+                          />
+                        )}
+                      </Draggable>
                     ))}
-                </ul>
+                </ul>{provided.placeholder}
               </div>
             )}
           </Droppable>
@@ -117,14 +137,22 @@ function Swimlanes() {
                 <ul className="swimlanes__list">
                   {jobData
                     .filter((elm) => elm.status === "Rejected")
-                    .map((elm, provided, snapshot) => (
-                      <SwimlaneCard
-                        testData={elm}
-                        provided={provided}
-                        snapshot={snapshot}
-                      />
+                    .map((elm,index) => (
+                      <Draggable
+                        key={elm.id}
+                        draggableId={elm.id}
+                        index={index}
+                      >
+                        {(provided, snapshot) => (
+                          <SwimlaneCard
+                            testData={elm}
+                            provided={provided}
+                            snapshot={snapshot}
+                          />
+                        )}
+                      </Draggable>
                     ))}
-                </ul>
+                </ul>{provided.placeholder}
               </div>
             )}
           </Droppable>
@@ -132,24 +160,32 @@ function Swimlanes() {
             {(provided, snapshot) => (
               <div
                 className="swimlanes__column"
-                ef={provided.innerRef}
+                ref={provided.innerRef}
                 {...provided.droppableProps}
               >
                 <h6>HR Round</h6>
                 <ul className="swimlanes__list">
                   {jobData
                     .filter((elm) => elm.status === "HR Round")
-                    .map((elm, provided, snapshot) => (
-                      <SwimlaneCard
-                        testData={elm}
-                        provided={provided}
-                        snapshot={snapshot}
-                      />
+                    .map((elm,index) => (
+                      <Draggable
+                        key={elm.id}
+                        draggableId={elm.id}
+                        index={index}
+                      >
+                        {(provided, snapshot) => (
+                          <SwimlaneCard
+                            testData={elm}
+                            provided={provided}
+                            snapshot={snapshot}
+                          />
+                        )}
+                      </Draggable>
                     ))}
-                </ul>
+                </ul>{provided.placeholder}
               </div>
             )}
-          </Droppable> */}
+          </Droppable>
         </section>
       </DragDropContext>
     </>
