@@ -4,7 +4,7 @@ function DashboardSideIcon({ toggleSidebar }) {
   return (
     <>
       <span
-        class="material-icons"
+        className="material-icons"
         onClick={toggleSidebar}
         style={{ cursor: "pointer" }}
       >
