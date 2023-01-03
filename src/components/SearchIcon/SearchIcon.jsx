@@ -1,13 +1,15 @@
-import React from 'react'
+import React from "react";
 
-function SearchIcon({handleClick}) {
+function SearchIcon({ handleClick }) {
   return (
-  
-   <span class="material-icons" onClick={handleClick} style={{ cursor: 'pointer'}}>
-search
-</span>
-
-  )
+    <span
+      className="material-icons"
+      onClick={handleClick}
+      style={{ cursor: "pointer" }}
+    >
+      search
+    </span>
+  );
 }
 
-export default SearchIcon
+export default SearchIcon;

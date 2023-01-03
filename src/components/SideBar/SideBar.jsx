@@ -8,14 +8,14 @@ function SideBar({ isOpen, toggleSidebar }) {
     <>
       {isOpen && (
         <div className="sideContainer">
-          <div className="sidebar open" style={{paddingTop:"100px"}}>
+          <div className="sidebar open" style={{ paddingTop: "100px" }}>
             <div>Analytics</div>
             <div> Logout </div>
           </div>
         </div>
       )}
       {/* <button onClick={toggleSidebar} className="sidebar-toggle">
-        <span class="material-icons">
+        <span className="material-icons">
           {isOpen ? "chevron_left" : "navigate_next"}
         </span>
       </button> */}
