@@ -5,7 +5,7 @@ import SwimlaneCard from "../SwimlaneCard/SwimlaneCard";
 import "./Swimlanes.css";
 import { testData } from "./../../Assets/testData";
 
-function Swimlanes() {
+function Swimlanes({ isSwimLane }) {
   const [jobData, setJobData] = useState(testData);
 
   function onDragEnd(result) {
@@ -35,45 +35,47 @@ function Swimlanes() {
 <p><strong>Tip:</strong> Resize to ~1100px for sideways scrolling </p> */}
       <DragDropContext onDragEnd={onDragEnd}>
         <section className="swimlanes">
-          <Droppable droppableId={"Applied"}>
-            {(provided, snapshot) => (
-              <div
-                className="swimlanes__column"
-                ref={provided.innerRef}
-               // style={getListStyle(snapshot.isDraggingOver)}
-                {...provided.droppableProps}
-              >
-                <h6>Applied</h6>
-                <ul className="swimlanes__list">
-                  {jobData
-                    .filter((elm) => elm.status === "Applied")
-                    .map((elm, index) => (
-                      <Draggable
-                        key={elm.id}
-                        draggableId={elm.id}
-                        index={index}
-                      >
-                        {(provided, snapshot) => (
-                          <SwimlaneCard
-                            testData={elm}
-                            provided={provided}
-                            snapshot={snapshot}
-
-                          />
-                        )}
-                      </Draggable>
-                    ))}
-                </ul>{" "}
-                {provided.placeholder}
-              </div>
-            )}
-          </Droppable>
+          {isSwimLane.some((el) => el.key === "Applied") && (
+            <Droppable droppableId={"Applied"}>
+              {(provided, snapshot) => (
+                <div
+                  className="swimlanes__column"
+                  ref={provided.innerRef}
+                  // style={getListStyle(snapshot.isDraggingOver)}
+                  {...provided.droppableProps}
+                >
+                  <h6>Applied</h6>
+                  <ul className="swimlanes__list">
+                    {jobData
+                      .filter((elm) => elm.status === "Applied")
+                      .map((elm, index) => (
+                        <Draggable
+                          key={elm.id}
+                          draggableId={elm.id}
+                          index={index}
+                        >
+                          {(provided, snapshot) => (
+                            <SwimlaneCard
+                              testData={elm}
+                              provided={provided}
+                              snapshot={snapshot}
+                            />
+                          )}
+                        </Draggable>
+                      ))}
+                  </ul>{" "}
+                  {provided.placeholder}
+                </div>
+              )}
+            </Droppable>
+          )}
+          {isSwimLane.some((el) => el.key === "Technical Round") && (
           <Droppable droppableId="Technical Round">
             {(provided, snapshot) => (
               <div
                 className="swimlanes__column"
                 ref={provided.innerRef}
-               // style={getListStyle(snapshot.isDraggingOver)}
+                // style={getListStyle(snapshot.isDraggingOver)}
                 {...provided.droppableProps}
               >
                 <h6>Technical Round</h6>
@@ -100,12 +102,14 @@ function Swimlanes() {
               </div>
             )}
           </Droppable>
+          )}
+          {isSwimLane.some((el) => el.key === "Non Technical Round") && (
           <Droppable droppableId="Non Technical Round">
             {(provided, snapshot) => (
               <div
                 className="swimlanes__column"
                 ref={provided.innerRef}
-              //  style={getListStyle(snapshot.isDraggingOver)}
+                //  style={getListStyle(snapshot.isDraggingOver)}
                 {...provided.droppableProps}
               >
                 <h6>Non Technical Round</h6>
@@ -132,12 +136,14 @@ function Swimlanes() {
               </div>
             )}
           </Droppable>
+          )}
+          {isSwimLane.some((el) => el.key === "Rejected") && (
           <Droppable droppableId="Rejected">
             {(provided, snapshot) => (
               <div
                 className="swimlanes__column"
                 ref={provided.innerRef}
-            //    style={getListStyle(snapshot.isDraggingOver)}
+                //    style={getListStyle(snapshot.isDraggingOver)}
                 {...provided.droppableProps}
               >
                 <h6>Rejected</h6>
@@ -164,12 +170,14 @@ function Swimlanes() {
               </div>
             )}
           </Droppable>
+          )}
+          {isSwimLane.some((el) => el.key === "Rejected") && (
           <Droppable droppableId="HR Round">
             {(provided, snapshot) => (
               <div
                 className="swimlanes__column"
                 ref={provided.innerRef}
-             //   style={getListStyle(snapshot.isDraggingOver)}
+                //   style={getListStyle(snapshot.isDraggingOver)}
                 {...provided.droppableProps}
               >
                 <h6>HR Round</h6>
@@ -196,6 +204,7 @@ function Swimlanes() {
               </div>
             )}
           </Droppable>
+          )}
         </section>
       </DragDropContext>
     </>

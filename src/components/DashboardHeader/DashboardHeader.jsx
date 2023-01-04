@@ -1,21 +1,28 @@
 import React from "react";
 import AddJob from "../AddJobButton/AddJob";
 import DashboardSideIcon from "../DashboardSideIcon/DashboardSideIcon";
-import Filter from "../Filter/Filter";
+import FilterIcon from "../FilterIcon/FilterIcon";
+import FilterSelect from "../FilterSelect/FilterSelect";
 import SearchIcon from "../SearchIcon/SearchIcon";
 import SearchInput from "../SearchInput/SearchInput";
 
-
-
 import "./DashboardHeader.css";
 
-function DashboardHeader({isSearch,toggleSearch,toggleSidebar}) {
+function DashboardHeader({
+  isSearch,
+  toggleSearch,
+  toggleSidebar,
+  isFilter,
+  toggleFilter,
+  setIsSwimLane
+}) 
 
+{
   return (
     <>
       <div className="dashboardContainer">
-        <div style={{paddingLeft: "15px"}}>
-        <DashboardSideIcon toggleSidebar={toggleSidebar}/>
+        <div style={{ paddingLeft: "15px" }}>
+          <DashboardSideIcon toggleSidebar={toggleSidebar} />
           {/* <span>Dashboard Header</span> */}
         </div>
         <div className="dashboardInnerContainer">
@@ -32,9 +39,20 @@ function DashboardHeader({isSearch,toggleSearch,toggleSidebar}) {
               />
             </div>
           )}
-          <div className="filterContainer">
-            <Filter/>
-          </div>
+          {isFilter ? (
+            <div>
+              <FilterSelect setIsSwimLane={setIsSwimLane}/>
+            </div>
+          ) : (
+            <div className="filterContainer">
+              <FilterIcon
+                handleFilter={() => {
+                  toggleFilter();
+                }}
+              />
+            </div>
+          )}
+
           <div className="buttonContainer">
             <AddJob />
           </div>

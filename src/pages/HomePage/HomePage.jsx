@@ -14,13 +14,24 @@ function HomePage() {
   const toggleSearch = () => {
     setIsSearch(!isSearch);
   };
+  const [isFilter, setIsFilter] = useState(false);
+  const toggleFilter = () => {
+    setIsFilter(!isFilter);
+  };
+  const [isSwimLane,setIsSwimLane]=useState([])
   return (
     <>
-      <DashboardHeader isSearch={isSearch} toggleSearch={toggleSearch} toggleSidebar={handleViewSidebar}/>
-   
+      <DashboardHeader
+        isSearch={isSearch}
+        toggleSearch={toggleSearch}
+        toggleSidebar={handleViewSidebar}
+        isFilter={isFilter}
+        toggleFilter={toggleFilter}
+        setIsSwimLane={setIsSwimLane}
+      />
+
       <SideBar isOpen={sidebarOpen} toggleSidebar={handleViewSidebar} />
-      <Swimlanes />
-     
+      <Swimlanes isSwimLane={isSwimLane}/>
     </>
   );
 }
