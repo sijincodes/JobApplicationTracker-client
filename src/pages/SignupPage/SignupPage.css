@@ -1,0 +1,53 @@
+.Page{
+    height: 100vh;
+    width: 100vw;
+    margin:0px;
+    background-color: #F0EBE3;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container{
+    
+    background-image: url("./../../Assets/Job\ Tracker.png");
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  
+    /* margin-left:  460px;
+    margin-right: 460px; */
+    
+
+    height: 100%;
+    width: 35%;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.innerWrapper{
+    padding-top: 290px;
+}
+.formContainer{
+    display: flex;
+    flex-direction: column;
+}
+.formInnerContainer{
+    padding-top: 10px;
+}
+.passwordDiv{
+    padding-right: 25px;
+}
+.buttonForm{
+    height: 35px;
+    width: 100px;
+    cursor: pointer;
+    border-radius: 10px;
+    border: 2px;
+}
+@media(max-width: 820px){
+	.container {
+		
+        height: 100%;
+        width: 100%;
+	}
+}

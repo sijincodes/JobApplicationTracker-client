@@ -46,31 +46,48 @@ function SignupPage() {
   };
 
   return (
-    <div className="SignupPage">
-      <h1>Sign Up</h1>
+    <div className="Page">
+      <div className="container">
+        <div className="innerWrapper">
+          <h1>Sign Up</h1>
 
-      <form onSubmit={handleSignupSubmit}>
-        <label>Email:</label>
-        <input type="email" name="email" value={email} onChange={handleEmail} />
+          <form onSubmit={handleSignupSubmit}>
+          <div className="formContainer">
+          <div className="formInnerContainer">
+            <label>Email:</label>
+            <input
+              type="email"
+              name="email"
+              value={email}
+              onChange={handleEmail}
+            />
+            </div>
+            <div className="formInnerContainer">
+            <label>Name:</label>
+            <input type="text" name="name" value={name} onChange={handleName} />
+            </div>
+            <div className="formInnerContainer passwordDiv">
+            <label>Password:</label>
+            <input
+              type="password"
+              name="password"
+              value={password}
+              onChange={handlePassword}
+            />
+            </div>
+            <div className="formInnerContainer">
+            <button className="buttonForm" type="submit">Sign Up</button>
+            </div>
+            
+            </div>
+          </form>
 
-        <label>Password:</label>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={handlePassword}
-        />
+          {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-        <label>Name:</label>
-        <input type="text" name="name" value={name} onChange={handleName} />
-
-        <button type="submit">Sign Up</button>
-      </form>
-
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
-
-      <p>Already have account?</p>
-      <Link to={"/login"}> Login</Link>
+          <p style={{marginBottom:"0px"}}>Already have account?</p>
+          <Link to={"/login"} style={{color:"#678983" ,fontSize:"15px" }}> Login</Link>
+        </div>
+      </div>
     </div>
   );
 }

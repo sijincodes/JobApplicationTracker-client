@@ -1,4 +1,4 @@
-import "./LoginPage.css";
+import "./../SignupPage/SignupPage.css";
 import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
@@ -45,13 +45,18 @@ function LoginPage() {
   };
 
   return (
-    <div className="LoginPage">
+    <div className="Page">
+      <div className="container">
+        <div className="innerWrapper">
       <h1>Login</h1>
 
       <form onSubmit={handleLoginSubmit}>
+      <div className="formContainer">
+      <div className="formInnerContainer" style={{paddingLeft: "25px"}}>
         <label>Email:</label>
         <input type="email" name="email" value={email} onChange={handleEmail} />
-
+</div>
+ <div className="formInnerContainer">
         <label>Password:</label>
         <input
           type="password"
@@ -59,13 +64,18 @@ function LoginPage() {
           value={password}
           onChange={handlePassword}
         />
-
-        <button type="submit">Login</button>
+        </div>
+        <div className="formInnerContainer">
+        <button  className="buttonForm" type="submit" style={{marginLeft: "20px"}}>Login</button>
+        </div>
+        </div>
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-      <p>Don't have an account yet?</p>
-      <Link to={"/signup"}> Sign Up</Link>
+      <p style={{marginBottom:"0px"}}>Don't have an account yet?</p>
+      <Link to={"/signup"} style={{color:"#678983" ,fontSize:"15px" }}> Sign Up </Link>
+    </div>
+    </div>
     </div>
   );
 }
