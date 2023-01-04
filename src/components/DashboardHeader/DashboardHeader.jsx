@@ -1,6 +1,7 @@
 import React from "react";
 import AddJob from "../AddJobButton/AddJob";
 import DashboardSideIcon from "../DashboardSideIcon/DashboardSideIcon";
+import Filter from "../Filter/Filter";
 import SearchIcon from "../SearchIcon/SearchIcon";
 import SearchInput from "../SearchInput/SearchInput";
 
@@ -31,6 +32,9 @@ function DashboardHeader({isSearch,toggleSearch,toggleSidebar}) {
               />
             </div>
           )}
+          <div className="filterContainer">
+            <Filter/>
+          </div>
           <div className="buttonContainer">
             <AddJob />
           </div>

@@ -25,9 +25,9 @@ function Swimlanes() {
     }
   }
 
-  const getListStyle = (isDraggingOver) => ({
-    background: isDraggingOver ? "lightblue" : "#F2F2F3;",
-  });
+  // const getListStyle = (isDraggingOver) => ({
+  //   background: isDraggingOver ? "lightblue" : "#F2F2F3;",
+  // });
   return (
     <>
       {/* 
@@ -40,7 +40,7 @@ function Swimlanes() {
               <div
                 className="swimlanes__column"
                 ref={provided.innerRef}
-                style={getListStyle(snapshot.isDraggingOver)}
+               // style={getListStyle(snapshot.isDraggingOver)}
                 {...provided.droppableProps}
               >
                 <h6>Applied</h6>
@@ -58,6 +58,7 @@ function Swimlanes() {
                             testData={elm}
                             provided={provided}
                             snapshot={snapshot}
+
                           />
                         )}
                       </Draggable>
@@ -72,7 +73,7 @@ function Swimlanes() {
               <div
                 className="swimlanes__column"
                 ref={provided.innerRef}
-                style={getListStyle(snapshot.isDraggingOver)}
+               // style={getListStyle(snapshot.isDraggingOver)}
                 {...provided.droppableProps}
               >
                 <h6>Technical Round</h6>
@@ -104,7 +105,7 @@ function Swimlanes() {
               <div
                 className="swimlanes__column"
                 ref={provided.innerRef}
-                style={getListStyle(snapshot.isDraggingOver)}
+              //  style={getListStyle(snapshot.isDraggingOver)}
                 {...provided.droppableProps}
               >
                 <h6>Non Technical Round</h6>
@@ -136,7 +137,7 @@ function Swimlanes() {
               <div
                 className="swimlanes__column"
                 ref={provided.innerRef}
-                style={getListStyle(snapshot.isDraggingOver)}
+            //    style={getListStyle(snapshot.isDraggingOver)}
                 {...provided.droppableProps}
               >
                 <h6>Rejected</h6>
@@ -168,7 +169,7 @@ function Swimlanes() {
               <div
                 className="swimlanes__column"
                 ref={provided.innerRef}
-                style={getListStyle(snapshot.isDraggingOver)}
+             //   style={getListStyle(snapshot.isDraggingOver)}
                 {...provided.droppableProps}
               >
                 <h6>HR Round</h6>

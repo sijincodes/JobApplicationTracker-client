@@ -2,7 +2,7 @@ import React from "react";
 
 import "./SwimlaneCard.css";
 
-function SwimlaneCard({ testData, provided, snapshot }) {
+function SwimlaneCard({ testData, provided, snapshot,index,jobData }) {
   const getItemStyle = (isDragging, draggableStyle) => ({
     userSelect: "none",
     background: isDragging ? "#88A47C" : "#ACCDD8",
