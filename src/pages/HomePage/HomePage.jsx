@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
 import DashboardHeader from "../../components/DashboardHeader/DashboardHeader";
+import { swimLaneFieldNames } from "../../components/FilterSelect/FilterSelect";
 import SideBar from "../../components/SideBar/SideBar";
 import Swimlanes from "../../components/Swimlanes/Swimlanes";
 
@@ -18,7 +20,12 @@ function HomePage() {
   const toggleFilter = () => {
     setIsFilter(!isFilter);
   };
-  const [isSwimLane,setIsSwimLane]=useState([])
+  const [isSwimLane, setIsSwimLane] = useState([]);
+
+  useEffect(() => {
+    setIsSwimLane(swimLaneFieldNames);
+  }, []);
+
   return (
     <>
       <DashboardHeader
@@ -27,11 +34,12 @@ function HomePage() {
         toggleSidebar={handleViewSidebar}
         isFilter={isFilter}
         toggleFilter={toggleFilter}
+        isSwimLane={isSwimLane}
         setIsSwimLane={setIsSwimLane}
       />
 
       <SideBar isOpen={sidebarOpen} toggleSidebar={handleViewSidebar} />
-      <Swimlanes isSwimLane={isSwimLane}/>
+      <Swimlanes isSwimLane={isSwimLane} />
     </>
   );
 }

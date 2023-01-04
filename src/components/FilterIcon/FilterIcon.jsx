@@ -1,13 +1,17 @@
-import React from 'react'
+import React from "react";
 
-function Filter({handleFilter}) {
+function Filter({ handleFilter }) {
   return (
     <>
-        <span class="material-icons"  onClick={handleFilter} style={{ cursor: "pointer" }}>
-filter_alt
-</span>
+      <span
+        className="material-icons"
+        onClick={handleFilter}
+        style={{ cursor: "pointer" }}
+      >
+        filter_alt
+      </span>
     </>
-  )
+  );
 }
 
-export default Filter
+export default Filter;

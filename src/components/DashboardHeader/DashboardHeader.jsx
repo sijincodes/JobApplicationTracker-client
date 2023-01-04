@@ -14,10 +14,9 @@ function DashboardHeader({
   toggleSidebar,
   isFilter,
   toggleFilter,
-  setIsSwimLane
-}) 
-
-{
+  setIsSwimLane,
+  isSwimLane,
+}) {
   return (
     <>
       <div className="dashboardContainer">
@@ -41,7 +40,10 @@ function DashboardHeader({
           )}
           {isFilter ? (
             <div>
-              <FilterSelect setIsSwimLane={setIsSwimLane}/>
+              <FilterSelect
+                setIsSwimLane={setIsSwimLane}
+                isSwimLane={isSwimLane}
+              />
             </div>
           ) : (
             <div className="filterContainer">

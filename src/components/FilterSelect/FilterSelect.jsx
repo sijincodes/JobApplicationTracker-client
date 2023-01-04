@@ -1,9 +1,25 @@
 import React, { useRef } from "react";
 import Multiselect from "multiselect-react-dropdown";
 
-function FilterSelect({setIsSwimLane}) {
- 
+export const swimLaneFieldNames = [
+  {
+    key: "Applied",
+  },
+  {
+    key: "Technical Round",
+  },
+  {
+    key: "Non Technical Round",
+  },
+  {
+    key: "Rejected",
+  },
+  {
+    key: "HR Round",
+  },
+];
 
+function FilterSelect({ setIsSwimLane, isSwimLane }) {
   const multiselectRef = useRef();
 
   return (
@@ -13,40 +29,21 @@ function FilterSelect({setIsSwimLane}) {
         displayValue="key"
         style={{
           option: {
-            // To change css for dropdown options
             backgroundColor: "#ECE8DD",
           },
         }}
         ref={multiselectRef}
         hideSelectedList
-        onKeyPressFn={function noRefCheck() {}}
         onRemove={() => {
-          console.log("JibuRemove:", multiselectRef.current.getSelectedItems());
+          const test = multiselectRef.current.getSelectedItems();
+          setIsSwimLane([...test]);
         }}
-        onSearch={function noRefCheck() {}}
         onSelect={() => {
-         
-          const swimLaneArray = multiselectRef.current.getSelectedItems()
-         // console.log('swimlaneArray',swimLaneArray.some(el => el.key === 'Applied'))
-          setIsSwimLane(swimLaneArray)
+          const test = multiselectRef.current.getSelectedItems();
+          setIsSwimLane([...test]);
         }}
-        options={[
-          {
-            key: "Applied",
-          },
-          {
-            key: "Technical Round",
-          },
-          {
-            key: "Non Technical Round",
-          },
-          {
-            key: "Rejected",
-          },
-          {
-            key: "HR Round",
-          },
-        ]}
+        selectedValues={swimLaneFieldNames}
+        options={swimLaneFieldNames}
         showCheckbox
       />
     </div>
