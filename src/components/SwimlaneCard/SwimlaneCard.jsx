@@ -8,6 +8,9 @@ function SwimlaneCard({ testData, provided, snapshot, index, jobData }) {
   const seeMoreForm = () => {
     setIsButtonClicked(!IsButtonClicked);
   };
+  const onClose =()=>{
+    setIsButtonClicked(false)
+  }
   const getItemStyle = (isDragging, draggableStyle) => ({
     userSelect: "none",
     background: isDragging ? "#88A47C" : "#ACCDD8",
@@ -30,7 +33,7 @@ function SwimlaneCard({ testData, provided, snapshot, index, jobData }) {
           See More
         </button>
       </div>
-      {IsButtonClicked && <Form />}
+      {IsButtonClicked && <Form onClose={onClose}/>}
     </>
   );
 }

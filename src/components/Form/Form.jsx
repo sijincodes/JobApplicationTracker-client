@@ -3,7 +3,8 @@ import ReactDOM from "react-dom";
 
 import "./Form.css";
 
-function Form() {
+function Form({onClose}) {
+   
   return ReactDOM.createPortal(
     <div className="portal-overlay">
       <div id="modal-root">
@@ -67,11 +68,21 @@ function Form() {
               </div>
               <div class="col-75">
                 <select id="stage" name="stage">
-                  <option value="Applied">Applied</option>
-                  <option value="techRound">Technical Round</option>
-                  <option value="nonTechRound">Non Technical Round</option>
-                  <option value="rejected">Rejected</option>
-                  <option value="hired">Hired</option>
+                  <option className="option" value="Applied">
+                    Applied
+                  </option>
+                  <option className="option" value="techRound">
+                    Technical Round
+                  </option>
+                  <option className="option" value="nonTechRound">
+                    Non Technical Round
+                  </option>
+                  <option className="option" value="rejected">
+                    Rejected
+                  </option>
+                  <option className="option" value="hired">
+                    Hired
+                  </option>
                 </select>
               </div>
             </div>
@@ -88,8 +99,13 @@ function Form() {
                 ></textarea>
               </div>
             </div>
-            <div class="row">
-              <input type="submit" value="Save" />
+            <div className="buttonsContainer">
+            <div class="row btn">
+              <input className="cancelColor" type="submit" value="Cancel" onClick={onClose} />
+            </div>
+            <div class="row btn">
+              <input className="saveColor" type="submit" value="Save" />
+            </div>
             </div>
           </form>
         </div>
