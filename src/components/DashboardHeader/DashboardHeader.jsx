@@ -19,9 +19,9 @@ function DashboardHeader({
   isSwimLane,
   isAddJobButtonClicked,
   setIsAddJobButtonClicked,
-  onClose,
+  
 }) {
-  const handleClick = () => {
+  const handleFormToggle = () => {
     setIsAddJobButtonClicked(!isAddJobButtonClicked);
   };
 
@@ -64,9 +64,9 @@ function DashboardHeader({
           )}
 
           <div className="buttonContainer">
-            <AddJob handleClick={handleClick} />
+            <AddJob handleFormToggle={handleFormToggle} />
           </div>
-          {isAddJobButtonClicked && <Form onClose={onClose} />}
+          {isAddJobButtonClicked && <Form onClose={handleFormToggle} />}
         </div>
       </div>
     </>

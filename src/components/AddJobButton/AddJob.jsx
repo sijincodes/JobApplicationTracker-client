@@ -2,10 +2,10 @@ import React from 'react'
 
 import "./AddJob.css"
 
-function AddJob({handleClick}) {
+function AddJob({handleFormToggle}) {
   return (
     <>
-        <button className="addJobButton" onClick={handleClick}> + Add Job</button>
+        <button className="addJobButton" onClick={handleFormToggle}> + Add Job</button>
     </>
   )
 }

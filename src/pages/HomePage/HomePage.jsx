@@ -42,7 +42,7 @@ function HomePage() {
         setIsSwimLane={setIsSwimLane}
         isAddJobButtonClicked={isAddJobButtonClicked}
         setIsAddJobButtonClicked={setIsAddJobButtonClicked}
-        onClose={onClose}
+        
       />
 
       <SideBar isOpen={sidebarOpen} toggleSidebar={handleViewSidebar} />
