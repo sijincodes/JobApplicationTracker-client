@@ -3,6 +3,7 @@ import AddJob from "../AddJobButton/AddJob";
 import DashboardSideIcon from "../DashboardSideIcon/DashboardSideIcon";
 import FilterIcon from "../FilterIcon/FilterIcon";
 import FilterSelect from "../FilterSelect/FilterSelect";
+import Form from "../Form/Form";
 import SearchIcon from "../SearchIcon/SearchIcon";
 import SearchInput from "../SearchInput/SearchInput";
 
@@ -16,7 +17,14 @@ function DashboardHeader({
   toggleFilter,
   setIsSwimLane,
   isSwimLane,
+  isAddJobButtonClicked,
+  setIsAddJobButtonClicked,
+  onClose,
 }) {
+  const handleClick = () => {
+    setIsAddJobButtonClicked(!isAddJobButtonClicked);
+  };
+
   return (
     <>
       <div className="dashboardContainer">
@@ -56,8 +64,9 @@ function DashboardHeader({
           )}
 
           <div className="buttonContainer">
-            <AddJob />
+            <AddJob handleClick={handleClick} />
           </div>
+          {isAddJobButtonClicked && <Form onClose={onClose} />}
         </div>
       </div>
     </>

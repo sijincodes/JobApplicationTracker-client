@@ -25,7 +25,11 @@ function HomePage() {
   useEffect(() => {
     setIsSwimLane(swimLaneFieldNames);
   }, []);
-
+  const [isAddJobButtonClicked, setIsAddJobButtonClicked] = useState(false);
+  const [isForm,setIsForm] = useState(false);
+  const onClose =()=>{
+    setIsForm(false)
+  }
   return (
     <>
       <DashboardHeader
@@ -36,10 +40,13 @@ function HomePage() {
         toggleFilter={toggleFilter}
         isSwimLane={isSwimLane}
         setIsSwimLane={setIsSwimLane}
+        isAddJobButtonClicked={isAddJobButtonClicked}
+        setIsAddJobButtonClicked={setIsAddJobButtonClicked}
+        onClose={onClose}
       />
 
       <SideBar isOpen={sidebarOpen} toggleSidebar={handleViewSidebar} />
-      <Swimlanes isSwimLane={isSwimLane} />
+      <Swimlanes isSwimLane={isSwimLane} onClose={onClose} isForm={isForm} setIsForm={setIsForm}/>
     </>
   );
 }

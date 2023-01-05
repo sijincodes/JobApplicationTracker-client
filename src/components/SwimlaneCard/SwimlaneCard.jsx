@@ -1,16 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import Form from "../Form/Form";
 
 import "./SwimlaneCard.css";
 
-function SwimlaneCard({ testData, provided, snapshot, index, jobData }) {
-  const [IsButtonClicked, setIsButtonClicked] = useState(false);
+function SwimlaneCard({ testData, provided, snapshot, index, jobData,onClose,isForm ,setIsForm}) {
+
   const seeMoreForm = () => {
-    setIsButtonClicked(!IsButtonClicked);
+   setIsForm(!isForm);
   };
-  const onClose =()=>{
-    setIsButtonClicked(false)
-  }
+ 
   const getItemStyle = (isDragging, draggableStyle) => ({
     userSelect: "none",
     background: isDragging ? "#88A47C" : "#ACCDD8",
@@ -33,7 +31,7 @@ function SwimlaneCard({ testData, provided, snapshot, index, jobData }) {
           See More
         </button>
       </div>
-      {IsButtonClicked && <Form onClose={onClose}/>}
+      {isForm && <Form onClose={onClose}/>}
     </>
   );
 }

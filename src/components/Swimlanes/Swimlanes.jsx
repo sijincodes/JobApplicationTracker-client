@@ -5,7 +5,7 @@ import SwimlaneCard from "../SwimlaneCard/SwimlaneCard";
 import "./Swimlanes.css";
 import { testData } from "./../../Assets/testData";
 
-function Swimlanes({ isSwimLane }) {
+function Swimlanes({ isSwimLane,onClose,isForm,setIsForm }) {
   const [jobData, setJobData] = useState(testData);
 
   function onDragEnd(result) {
@@ -59,6 +59,7 @@ function Swimlanes({ isSwimLane }) {
                               testData={elm}
                               provided={provided}
                               snapshot={snapshot}
+                              onClose={onClose} isForm={isForm} setIsForm={setIsForm}
                             />
                           )}
                         </Draggable>
@@ -93,6 +94,7 @@ function Swimlanes({ isSwimLane }) {
                               testData={elm}
                               provided={provided}
                               snapshot={snapshot}
+                              onClose={onClose} isForm={isForm} setIsForm={setIsForm}
                             />
                           )}
                         </Draggable>
@@ -127,6 +129,7 @@ function Swimlanes({ isSwimLane }) {
                               testData={elm}
                               provided={provided}
                               snapshot={snapshot}
+                              onClose={onClose} isForm={isForm} setIsForm={setIsForm}
                             />
                           )}
                         </Draggable>
@@ -161,6 +164,7 @@ function Swimlanes({ isSwimLane }) {
                               testData={elm}
                               provided={provided}
                               snapshot={snapshot}
+                              onClose={onClose} isForm={isForm} setIsForm={setIsForm}
                             />
                           )}
                         </Draggable>
@@ -195,6 +199,7 @@ function Swimlanes({ isSwimLane }) {
                               testData={elm}
                               provided={provided}
                               snapshot={snapshot}
+                              onClose={onClose} isForm={isForm} setIsForm={setIsForm}
                             />
                           )}
                         </Draggable>
