@@ -29,14 +29,14 @@
         title:"Dev frontend",
         id:'5',
         company:"hello fresh",
-        status:"HR Round",
+        status:"Hired",
         
     },
     {
         title:"Dev jr",
         id:'6',
         company:"klarna",
-        status:"HR Round",
+        status:"Hired",
         
     },
     {

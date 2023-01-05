@@ -171,8 +171,8 @@ function Swimlanes({ isSwimLane }) {
               )}
             </Droppable>
           )}
-          {isSwimLane.some((el) => el.key === "HR Round") && (
-            <Droppable droppableId="HR Round">
+          {isSwimLane.some((el) => el.key === "Hired") && (
+            <Droppable droppableId="Hired">
               {(provided, snapshot) => (
                 <div
                   className="swimlanes__column"
@@ -180,10 +180,10 @@ function Swimlanes({ isSwimLane }) {
                   //   style={getListStyle(snapshot.isDraggingOver)}
                   {...provided.droppableProps}
                 >
-                  <h6>HR Round</h6>
+                  <h6>Hired</h6>
                   <ul className="swimlanes__list">
                     {jobData
-                      .filter((elm) => elm.status === "HR Round")
+                      .filter((elm) => elm.status === "Hired")
                       .map((elm, index) => (
                         <Draggable
                           key={elm.id}

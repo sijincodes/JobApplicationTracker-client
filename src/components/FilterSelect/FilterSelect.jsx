@@ -15,7 +15,7 @@ export const swimLaneFieldNames = [
     key: "Rejected",
   },
   {
-    key: "HR Round",
+    key: "Hired",
   },
 ];
 
