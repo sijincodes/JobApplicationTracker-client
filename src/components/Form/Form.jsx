@@ -1,10 +1,41 @@
 import React from "react";
+import { useState } from "react";
 import ReactDOM from "react-dom";
 
 import "./Form.css";
+import jobTracker from "../../services/job.service";
 
 function Form({onClose}) {
+   const [updatedJobRole, setUpdatedJobRole] = useState()
+   const [updatedCompanyName, setUpdatedCompanyName] = useState()
+   const [updatedJobUrl, setUpdatedJobUrl] = useState()
+   const [updatedSalary, setUpdatedSalary] = useState()
+   const [updatedNotes, setUpdatedNotes] = useState()
+   const [updatedInterviewStage, setUpdatedInterviewStage] = useState()
+
+
+   const updateJob = async (id) => {
+    const body = {
+      jobRole: updatedJobRole,
+      companyName: updatedCompanyName,
+      jobUrl:updatedJobUrl,
+      salary:updatedSalary,
+      interviewStage:updatedInterviewStage,
+      notes:updatedNotes
+    };
+
    
+     
+      jobTracker.updateOne(id,body).then((response) => {
+        setUpdatedJobRole(response.data.jobRole);
+
+      });
+      
+    
+    
+  };
+
+
   return ReactDOM.createPortal(
     <div className="portal-overlay">
       <div id="modal-root">
@@ -20,6 +51,8 @@ function Form({onClose}) {
                   id="jobRole"
                   name="jobRole"
                   placeholder="Job Role"
+                  value={updatedJobRole}
+                  onChange={(e) => setUpdatedJobRole(e.target.value)}
                 />
               </div>
             </div>
@@ -33,6 +66,8 @@ function Form({onClose}) {
                   id="company"
                   name="company"
                   placeholder="Company"
+                  value={updatedCompanyName}
+                  onChange={(e) => setUpdatedCompanyName(e.target.value)}
                 />
               </div>
             </div>
@@ -46,6 +81,8 @@ function Form({onClose}) {
                   id="jobURL"
                   name="jobURL"
                   placeholder="Linkedin/Indeed Job post URL "
+                  value={updatedJobUrl}
+                  onChange={(e) => setUpdatedJobUrl(e.target.value)}
                 />
               </div>
             </div>
@@ -59,6 +96,8 @@ function Form({onClose}) {
                   id="salary"
                   name="salary"
                   placeholder="Salary Quoted by you "
+                  value={updatedSalary}
+                  onChange={(e) => setUpdatedSalary(e.target.value)}
                 />
               </div>
             </div>

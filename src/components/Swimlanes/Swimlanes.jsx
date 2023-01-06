@@ -1,13 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 import SwimlaneCard from "../SwimlaneCard/SwimlaneCard";
 import "./Swimlanes.css";
-import { testData } from "./../../Assets/testData";
 
-function Swimlanes({ isSwimLane,onClose,isForm,setIsForm }) {
-  const [jobData, setJobData] = useState(testData);
 
+import jobTracker from "../../services/job.service";
+
+function Swimlanes({ isSwimLane, onClose, isForm, setIsForm }) {
+  const [jobData, setJobData] = useState([]);
+  console.log("useEffect - Initial render (Mounting)", jobData);
+  useEffect(() => {
+    jobTracker.getAll().then((response) => {
+      setJobData(response.data);
+    });
+  }, []);
   function onDragEnd(result) {
     const { source, destination, draggableId } = result;
 
@@ -19,7 +26,7 @@ function Swimlanes({ isSwimLane,onClose,isForm,setIsForm }) {
       const updateJobData = [...jobData];
       updateJobData
         .filter((elm) => elm.id === draggableId)
-        .map((elm) => (elm.status = destination.droppableId));
+        .map((elm) => (elm.interviewStage = destination.droppableId));
 
       setJobData(updateJobData);
     }
@@ -47,7 +54,7 @@ function Swimlanes({ isSwimLane,onClose,isForm,setIsForm }) {
                   <h6>Applied</h6>
                   <ul className="swimlanes__list">
                     {jobData
-                      .filter((elm) => elm.status === "Applied")
+                      .filter((elm) => elm.interviewStage === "Applied")
                       .map((elm, index) => (
                         <Draggable
                           key={elm.id}
@@ -59,7 +66,9 @@ function Swimlanes({ isSwimLane,onClose,isForm,setIsForm }) {
                               testData={elm}
                               provided={provided}
                               snapshot={snapshot}
-                              onClose={onClose} isForm={isForm} setIsForm={setIsForm}
+                              onClose={onClose}
+                              isForm={isForm}
+                              setIsForm={setIsForm}
                             />
                           )}
                         </Draggable>
@@ -82,7 +91,7 @@ function Swimlanes({ isSwimLane,onClose,isForm,setIsForm }) {
                   <h6>Technical Round</h6>
                   <ul className="swimlanes__list">
                     {jobData
-                      .filter((elm) => elm.status === "Technical Round")
+                      .filter((elm) => elm.interviewStage === "Technical Round")
                       .map((elm, index) => (
                         <Draggable
                           key={elm.id}
@@ -94,7 +103,9 @@ function Swimlanes({ isSwimLane,onClose,isForm,setIsForm }) {
                               testData={elm}
                               provided={provided}
                               snapshot={snapshot}
-                              onClose={onClose} isForm={isForm} setIsForm={setIsForm}
+                              onClose={onClose}
+                              isForm={isForm}
+                              setIsForm={setIsForm}
                             />
                           )}
                         </Draggable>
@@ -117,7 +128,7 @@ function Swimlanes({ isSwimLane,onClose,isForm,setIsForm }) {
                   <h6>Non Technical Round</h6>
                   <ul className="swimlanes__list">
                     {jobData
-                      .filter((elm) => elm.status === "Non Technical Round")
+                      .filter((elm) => elm.interviewStage === "Non Technical Round")
                       .map((elm, index) => (
                         <Draggable
                           key={elm.id}
@@ -129,7 +140,9 @@ function Swimlanes({ isSwimLane,onClose,isForm,setIsForm }) {
                               testData={elm}
                               provided={provided}
                               snapshot={snapshot}
-                              onClose={onClose} isForm={isForm} setIsForm={setIsForm}
+                              onClose={onClose}
+                              isForm={isForm}
+                              setIsForm={setIsForm}
                             />
                           )}
                         </Draggable>
@@ -152,7 +165,7 @@ function Swimlanes({ isSwimLane,onClose,isForm,setIsForm }) {
                   <h6>Rejected</h6>
                   <ul className="swimlanes__list">
                     {jobData
-                      .filter((elm) => elm.status === "Rejected")
+                      .filter((elm) => elm.interviewStage === "Rejected")
                       .map((elm, index) => (
                         <Draggable
                           key={elm.id}
@@ -164,7 +177,9 @@ function Swimlanes({ isSwimLane,onClose,isForm,setIsForm }) {
                               testData={elm}
                               provided={provided}
                               snapshot={snapshot}
-                              onClose={onClose} isForm={isForm} setIsForm={setIsForm}
+                              onClose={onClose}
+                              isForm={isForm}
+                              setIsForm={setIsForm}
                             />
                           )}
                         </Draggable>
@@ -187,7 +202,7 @@ function Swimlanes({ isSwimLane,onClose,isForm,setIsForm }) {
                   <h6>Hired</h6>
                   <ul className="swimlanes__list">
                     {jobData
-                      .filter((elm) => elm.status === "Hired")
+                      .filter((elm) => elm.interviewStage === "Hired")
                       .map((elm, index) => (
                         <Draggable
                           key={elm.id}
@@ -199,7 +214,9 @@ function Swimlanes({ isSwimLane,onClose,isForm,setIsForm }) {
                               testData={elm}
                               provided={provided}
                               snapshot={snapshot}
-                              onClose={onClose} isForm={isForm} setIsForm={setIsForm}
+                              onClose={onClose}
+                              isForm={isForm}
+                              setIsForm={setIsForm}
                             />
                           )}
                         </Draggable>

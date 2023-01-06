@@ -4,7 +4,7 @@ import Form from "../Form/Form";
 import "./SwimlaneCard.css";
 
 function SwimlaneCard({ testData, provided, snapshot, index, jobData,onClose,isForm ,setIsForm}) {
-
+ 
   const seeMoreForm = () => {
    setIsForm(!isForm);
   };
@@ -23,8 +23,8 @@ function SwimlaneCard({ testData, provided, snapshot, index, jobData,onClose,isF
         {...provided.dragHandleProps}
         style={getItemStyle(snapshot.isDragging, provided.draggableProps.style)}
       >
-        <h1 className="heading">Job Title: {testData.title}</h1>
-        <p className="desc">Company: {testData.company}</p>
+        <h1 className="heading">Job Title: {testData.jobRole}</h1>
+        <p className="desc">Company: {testData.companyName}</p>
         <p>Tag</p>
 
         <button className="button" onClick={seeMoreForm}>

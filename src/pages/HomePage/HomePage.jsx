@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import { useEffect } from "react";
+import React, { useState,useEffect } from "react";
+
+
 import DashboardHeader from "../../components/DashboardHeader/DashboardHeader";
 import { swimLaneFieldNames } from "../../components/FilterSelect/FilterSelect";
 import SideBar from "../../components/SideBar/SideBar";
@@ -7,7 +8,9 @@ import Swimlanes from "../../components/Swimlanes/Swimlanes";
 
 import "./HomePage.css";
 
+
 function HomePage() {
+ 
   const [sidebarOpen, setSideBarOpen] = useState(false);
   const handleViewSidebar = () => {
     setSideBarOpen(!sidebarOpen);
