@@ -3,49 +3,57 @@ import { useState } from "react";
 import ReactDOM from "react-dom";
 
 import "./Form.css";
-import jobTracker from "../../services/job.service";
+//import jobTracker from "../../services/job.service";
 
-function Form({onClose}) {
-   const [updatedJobRole, setUpdatedJobRole] = useState()
-   const [updatedCompanyName, setUpdatedCompanyName] = useState()
-   const [updatedJobUrl, setUpdatedJobUrl] = useState()
-   const [updatedSalary, setUpdatedSalary] = useState()
-   const [updatedNotes, setUpdatedNotes] = useState()
-   const [updatedInterviewStage, setUpdatedInterviewStage] = useState()
+function Form({ onClose, editMode, testData }) {
+  console.log("form test data", testData);
 
+  const [updatedJobRole, setUpdatedJobRole] = useState(
+    editMode ? testData.jobRole : ""
+  );
+  const [updatedCompanyName, setUpdatedCompanyName] = useState(
+    editMode ? testData.companyName : ""
+  );
+  const [updatedJobUrl, setUpdatedJobUrl] = useState(
+    editMode ? testData.jobUrl : ""
+  );
+  const [updatedSalary, setUpdatedSalary] = useState(
+    editMode ? testData.salary : ""
+  );
+  const [updatedNotes, setUpdatedNotes] = useState(
+    editMode ? testData.notes : ""
+  );
+  const [updatedInterviewStage, setUpdatedInterviewStage] = useState(
+    editMode ? testData.interviewStage : ""
+  );
 
-   const updateJob = async (id) => {
-    const body = {
-      jobRole: updatedJobRole,
-      companyName: updatedCompanyName,
-      jobUrl:updatedJobUrl,
-      salary:updatedSalary,
-      interviewStage:updatedInterviewStage,
-      notes:updatedNotes
-    };
+  //  const updateJob = async (id) => {
+  //   const body = {
+  //     jobRole: updatedJobRole,
+  //     companyName: updatedCompanyName,
+  //     jobUrl:updatedJobUrl,
+  //     salary:updatedSalary,
+  //     interviewStage:updatedInterviewStage,
+  //     notes:updatedNotes
+  //   };
 
-   
-     
-      jobTracker.updateOne(id,body).then((response) => {
-        setUpdatedJobRole(response.data.jobRole);
+  //     jobTracker.updateOne(id,body).then((response) => {
+  //       setUpdatedJobRole(response.data.jobRole);
 
-      });
-      
-    
-    
-  };
+  //     });
 
+  // };
 
   return ReactDOM.createPortal(
     <div className="portal-overlay">
       <div id="modal-root">
-        <div class="containerForm">
+        <div className="containerForm">
           <form id="contact" method="post">
-            <div class="row">
-              <div class="col-25">
-                <label for="jobRole">Job Role</label>
+            <div className="row">
+              <div className="col-25">
+                <label htmlFor="jobRole">Job Role</label>
               </div>
-              <div class="col-75">
+              <div className="col-75">
                 <input
                   type="text"
                   id="jobRole"
@@ -56,11 +64,11 @@ function Form({onClose}) {
                 />
               </div>
             </div>
-            <div class="row">
-              <div class="col-25">
-                <label for="company">Company</label>
+            <div className="row">
+              <div className="col-25">
+                <label htmlFor="company">Company</label>
               </div>
-              <div class="col-75">
+              <div className="col-75">
                 <input
                   type="text"
                   id="company"
@@ -71,11 +79,11 @@ function Form({onClose}) {
                 />
               </div>
             </div>
-            <div class="row">
-              <div class="col-25">
-                <label for="jobURL">Job URL</label>
+            <div className="row">
+              <div className="col-25">
+                <label htmlFor="jobURL">Job URL</label>
               </div>
-              <div class="col-75">
+              <div className="col-75">
                 <input
                   type="text"
                   id="jobURL"
@@ -86,11 +94,11 @@ function Form({onClose}) {
                 />
               </div>
             </div>
-            <div class="row">
-              <div class="col-25">
-                <label for="salary">Salary Quoted</label>
+            <div className="row">
+              <div className="col-25">
+                <label htmlFor="salary">Salary Quoted</label>
               </div>
-              <div class="col-75">
+              <div className="col-75">
                 <input
                   type="text"
                   id="salary"
@@ -101,11 +109,11 @@ function Form({onClose}) {
                 />
               </div>
             </div>
-            <div class="row">
-              <div class="col-25">
-                <label for="stage">Interview Stage</label>
+            <div className="row">
+              <div className="col-25">
+                <label htmlFor="stage">Interview Stage</label>
               </div>
-              <div class="col-75">
+              <div className="col-75">
                 <select id="stage" name="stage">
                   <option className="option" value="Applied">
                     Applied
@@ -122,29 +130,38 @@ function Form({onClose}) {
                   <option className="option" value="hired">
                     Hired
                   </option>
+                  onChange={(e) => setUpdatedInterviewStage(e.target.value)}
+                  value={updatedInterviewStage}
                 </select>
               </div>
             </div>
-            <div class="row">
-              <div class="col-25">
-                <label for="Notes">Notes</label>
+            <div className="row">
+              <div className="col-25">
+                <label htmlFor="Notes">Notes</label>
               </div>
-              <div class="col-75">
+              <div className="col-75">
                 <textarea
                   id="Notes"
                   name="Notes"
                   placeholder="Your notes for this role"
                   style={{ height: "200px" }}
+                  value={updatedNotes}
+                  onChange={(e) => setUpdatedNotes(e.target.value)}
                 ></textarea>
               </div>
             </div>
             <div className="buttonsContainer">
-            <div class="row btn">
-              <input className="cancelColor" type="submit" value="Cancel" onClick={onClose} />
-            </div>
-            <div class="row btn">
-              <input className="saveColor" type="submit" value="Save" />
-            </div>
+              <div className="row btn">
+                <input
+                  className="cancelColor"
+                  type="submit"
+                  value="Cancel"
+                  onClick={onClose}
+                />
+              </div>
+              <div className="row btn">
+                <input className="saveColor" type="submit" value="Save" />
+              </div>
             </div>
           </form>
         </div>

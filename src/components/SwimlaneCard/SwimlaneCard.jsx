@@ -1,10 +1,13 @@
-import React from "react";
+import React , {useState} from "react";
 import Form from "../Form/Form";
 
 import "./SwimlaneCard.css";
 
-function SwimlaneCard({ testData, provided, snapshot, index, jobData,onClose,isForm ,setIsForm}) {
- 
+function SwimlaneCard({ testData, provided, snapshot, index, jobData}) {
+  const [isForm,setIsForm] = useState(false);
+  const onClose =()=>{
+    setIsForm(false)
+  }
   const seeMoreForm = () => {
    setIsForm(!isForm);
   };
@@ -27,11 +30,11 @@ function SwimlaneCard({ testData, provided, snapshot, index, jobData,onClose,isF
         <p className="desc">Company: {testData.companyName}</p>
         <p>Tag</p>
 
-        <button className="button" onClick={seeMoreForm}>
+        <button className="button" onClick={seeMoreForm} >
           See More
         </button>
       </div>
-      {isForm && <Form onClose={onClose}/>}
+      {isForm && <Form onClose={onClose} editMode={true} testData={testData}/>}
     </>
   );
 }

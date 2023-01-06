@@ -1,6 +1,4 @@
 import React, { useState,useEffect } from "react";
-
-
 import DashboardHeader from "../../components/DashboardHeader/DashboardHeader";
 import { swimLaneFieldNames } from "../../components/FilterSelect/FilterSelect";
 import SideBar from "../../components/SideBar/SideBar";
@@ -29,10 +27,8 @@ function HomePage() {
     setIsSwimLane(swimLaneFieldNames);
   }, []);
   const [isAddJobButtonClicked, setIsAddJobButtonClicked] = useState(false);
-  const [isForm,setIsForm] = useState(false);
-  const onClose =()=>{
-    setIsForm(false)
-  }
+ 
+
   return (
     <>
       <DashboardHeader
@@ -49,7 +45,7 @@ function HomePage() {
       />
 
       <SideBar isOpen={sidebarOpen} toggleSidebar={handleViewSidebar} />
-      <Swimlanes isSwimLane={isSwimLane} onClose={onClose} isForm={isForm} setIsForm={setIsForm}/>
+      <Swimlanes isSwimLane={isSwimLane}  />
     </>
   );
 }
