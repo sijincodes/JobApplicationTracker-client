@@ -19,6 +19,8 @@ function DashboardHeader({
   isSwimLane,
   isAddJobButtonClicked,
   setIsAddJobButtonClicked,
+  setSearchQuery,
+  searchQuery
 }) {
   const handleFormToggle = () => {
     setIsAddJobButtonClicked(!isAddJobButtonClicked);
@@ -34,7 +36,7 @@ function DashboardHeader({
         <div className="dashboardInnerContainer">
           {isSearch ? (
             <div className="searchContainer">
-              <SearchInput />
+              <SearchInput setSearchQuery={setSearchQuery} searchQuery={searchQuery } />
             </div>
           ) : (
             <div className="searchContainer icon">

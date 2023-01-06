@@ -114,7 +114,7 @@ function Form({ onClose, editMode, testData }) {
                 <label htmlFor="stage">Interview Stage</label>
               </div>
               <div className="col-75">
-                <select id="stage" name="stage">
+                <select id="stage" name="stage" value={updatedInterviewStage} onChange={(e) => setUpdatedInterviewStage(e.target.value)}>
                   <option className="option" value="Applied">
                     Applied
                   </option>
@@ -130,8 +130,7 @@ function Form({ onClose, editMode, testData }) {
                   <option className="option" value="hired">
                     Hired
                   </option>
-                  onChange={(e) => setUpdatedInterviewStage(e.target.value)}
-                  value={updatedInterviewStage}
+                
                 </select>
               </div>
             </div>

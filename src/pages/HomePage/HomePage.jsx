@@ -27,7 +27,7 @@ function HomePage() {
     setIsSwimLane(swimLaneFieldNames);
   }, []);
   const [isAddJobButtonClicked, setIsAddJobButtonClicked] = useState(false);
- 
+  const [searchQuery, setSearchQuery] = useState("");
 
   return (
     <>
@@ -41,11 +41,14 @@ function HomePage() {
         setIsSwimLane={setIsSwimLane}
         isAddJobButtonClicked={isAddJobButtonClicked}
         setIsAddJobButtonClicked={setIsAddJobButtonClicked}
+        setSearchQuery={setSearchQuery}
+  searchQuery={searchQuery}
+ 
         
       />
 
       <SideBar isOpen={sidebarOpen} toggleSidebar={handleViewSidebar} />
-      <Swimlanes isSwimLane={isSwimLane}  />
+      <Swimlanes isSwimLane={isSwimLane} searchQuery={searchQuery} setSearchQuery={setSearchQuery}/>
     </>
   );
 }

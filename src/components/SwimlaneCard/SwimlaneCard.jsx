@@ -26,7 +26,7 @@ function SwimlaneCard({ testData, provided, snapshot, index, jobData}) {
         {...provided.dragHandleProps}
         style={getItemStyle(snapshot.isDragging, provided.draggableProps.style)}
       >
-        <h1 className="heading">Job Title: {testData.jobRole}</h1>
+        <h1 className="heading">Job Role: {testData.jobRole}</h1>
         <p className="desc">Company: {testData.companyName}</p>
         <p>Tag</p>
 

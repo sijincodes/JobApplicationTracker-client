@@ -6,9 +6,13 @@ import "./Swimlanes.css";
 
 import jobTracker from "../../services/job.service";
 
-function Swimlanes({ isSwimLane}) {
- 
+function Swimlanes({ isSwimLane, setSearchQuery, searchQuery }) {
   const [jobData, setJobData] = useState([]);
+  const filteredJobData = jobData.filter((elm) => {
+    return (
+      elm.jobRole.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+  });
   console.log("useEffect - Initial render (Mounting)", jobData);
   useEffect(() => {
     jobTracker.getAll().then((response) => {
@@ -23,7 +27,7 @@ function Swimlanes({ isSwimLane}) {
     }
 
     if (source.droppableId !== destination.droppableId) {
-      const updateJobData = [...jobData];
+      const updateJobData = [...filteredJobData];
       updateJobData
         .filter((elm) => elm._id === draggableId)
         .map((elm) => (elm.interviewStage = destination.droppableId));
@@ -53,7 +57,7 @@ function Swimlanes({ isSwimLane}) {
                 >
                   <h6>Applied</h6>
                   <ul className="swimlanes__list">
-                    {jobData
+                    {filteredJobData
                       .filter((elm) => elm.interviewStage === "Applied")
                       .map((elm, index) => (
                         <Draggable
@@ -66,7 +70,6 @@ function Swimlanes({ isSwimLane}) {
                               testData={elm}
                               provided={provided}
                               snapshot={snapshot}
-                            
                             />
                           )}
                         </Draggable>
@@ -88,7 +91,7 @@ function Swimlanes({ isSwimLane}) {
                 >
                   <h6>Technical Round</h6>
                   <ul className="swimlanes__list">
-                    {jobData
+                    {filteredJobData
                       .filter((elm) => elm.interviewStage === "Technical Round")
                       .map((elm, index) => (
                         <Draggable
@@ -101,7 +104,6 @@ function Swimlanes({ isSwimLane}) {
                               testData={elm}
                               provided={provided}
                               snapshot={snapshot}
-                             
                             />
                           )}
                         </Draggable>
@@ -123,7 +125,7 @@ function Swimlanes({ isSwimLane}) {
                 >
                   <h6>Non Technical Round</h6>
                   <ul className="swimlanes__list">
-                    {jobData
+                    {filteredJobData
                       .filter(
                         (elm) => elm.interviewStage === "Non Technical Round"
                       )
@@ -138,7 +140,6 @@ function Swimlanes({ isSwimLane}) {
                               testData={elm}
                               provided={provided}
                               snapshot={snapshot}
-                              
                             />
                           )}
                         </Draggable>
@@ -160,7 +161,7 @@ function Swimlanes({ isSwimLane}) {
                 >
                   <h6>Rejected</h6>
                   <ul className="swimlanes__list">
-                    {jobData
+                    {filteredJobData
                       .filter((elm) => elm.interviewStage === "Rejected")
                       .map((elm, index) => (
                         <Draggable
@@ -173,7 +174,6 @@ function Swimlanes({ isSwimLane}) {
                               testData={elm}
                               provided={provided}
                               snapshot={snapshot}
-                            
                             />
                           )}
                         </Draggable>
@@ -195,7 +195,7 @@ function Swimlanes({ isSwimLane}) {
                 >
                   <h6>Hired</h6>
                   <ul className="swimlanes__list">
-                    {jobData
+                    {filteredJobData
                       .filter((elm) => elm.interviewStage === "Hired")
                       .map((elm, index) => (
                         <Draggable
@@ -208,7 +208,6 @@ function Swimlanes({ isSwimLane}) {
                               testData={elm}
                               provided={provided}
                               snapshot={snapshot}
-                            
                             />
                           )}
                         </Draggable>
