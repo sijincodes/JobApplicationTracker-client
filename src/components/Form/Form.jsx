@@ -1,12 +1,12 @@
 import React from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import ReactDOM from "react-dom";
-
+import jobTracker from "../../services/job.service";
 import "./Form.css";
-//import jobTracker from "../../services/job.service";
 
-function Form({ onClose, editMode, testData }) {
-  console.log("form test data", testData);
+function Form({ onClose, editMode, testData, filteredJobData, setJobData }) {
+  const navigate = useNavigate();
 
   const [updatedJobRole, setUpdatedJobRole] = useState(
     editMode ? testData.jobRole : ""
@@ -24,8 +24,28 @@ function Form({ onClose, editMode, testData }) {
     editMode ? testData.notes : ""
   );
   const [updatedInterviewStage, setUpdatedInterviewStage] = useState(
-    editMode ? testData.interviewStage : ""
+    editMode ? testData.interviewStage : []
   );
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("inside handle submit");
+    const body = {
+      jobRole: updatedJobRole,
+      companyName: updatedCompanyName,
+      jobUrl: updatedJobUrl,
+      salary: Number(updatedSalary),
+      interviewStage: updatedInterviewStage,
+      notes: updatedNotes,
+    };
+
+    jobTracker.createOne(body).then((response) => {
+      setJobData([...filteredJobData, response.data]);
+      console.log("setjob data", setJobData());
+    });
+
+    //navigate("/");
+  };
 
   //  const updateJob = async (id) => {
   //   const body = {
@@ -114,23 +134,27 @@ function Form({ onClose, editMode, testData }) {
                 <label htmlFor="stage">Interview Stage</label>
               </div>
               <div className="col-75">
-                <select id="stage" name="stage" value={updatedInterviewStage} onChange={(e) => setUpdatedInterviewStage(e.target.value)}>
+                <select
+                  id="stage"
+                  name="stage"
+                  value={updatedInterviewStage}
+                  onChange={(e) => setUpdatedInterviewStage(e.target.value)}
+                >
                   <option className="option" value="Applied">
                     Applied
                   </option>
-                  <option className="option" value="techRound">
+                  <option className="option" value="Technical Round">
                     Technical Round
                   </option>
-                  <option className="option" value="nonTechRound">
+                  <option className="option" value="Non Technical Round">
                     Non Technical Round
                   </option>
-                  <option className="option" value="rejected">
+                  <option className="option" value="Rejected">
                     Rejected
                   </option>
-                  <option className="option" value="hired">
+                  <option className="option" value="Hired">
                     Hired
                   </option>
-                
                 </select>
               </div>
             </div>
@@ -159,7 +183,12 @@ function Form({ onClose, editMode, testData }) {
                 />
               </div>
               <div className="row btn">
-                <input className="saveColor" type="submit" value="Save" />
+                <input
+                  className="saveColor"
+                  type="submit"
+                  value="Save"
+                  onClick={handleSubmit}
+                />
               </div>
             </div>
           </form>

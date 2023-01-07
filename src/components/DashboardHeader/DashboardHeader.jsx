@@ -20,7 +20,9 @@ function DashboardHeader({
   isAddJobButtonClicked,
   setIsAddJobButtonClicked,
   setSearchQuery,
-  searchQuery
+  searchQuery,
+  filteredJobData,
+  setJobData
 }) {
   const handleFormToggle = () => {
     setIsAddJobButtonClicked(!isAddJobButtonClicked);
@@ -67,7 +69,7 @@ function DashboardHeader({
           <div className="buttonContainer">
             <AddJob handleFormToggle={handleFormToggle} />
           </div>
-          {isAddJobButtonClicked && <Form onClose={handleFormToggle} editMode={false}/>}
+          {isAddJobButtonClicked && <Form onClose={handleFormToggle} editMode={false} filteredJobData={filteredJobData} setJobData={setJobData}/>}
         </div>
       </div>
     </>

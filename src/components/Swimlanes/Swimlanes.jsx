@@ -6,13 +6,9 @@ import "./Swimlanes.css";
 
 import jobTracker from "../../services/job.service";
 
-function Swimlanes({ isSwimLane, setSearchQuery, searchQuery }) {
-  const [jobData, setJobData] = useState([]);
-  const filteredJobData = jobData.filter((elm) => {
-    return (
-      elm.jobRole.toLowerCase().includes(searchQuery.toLowerCase())||elm.companyName.toLowerCase().includes(searchQuery.toLowerCase())
-    );
-  });
+function Swimlanes({ isSwimLane, setSearchQuery, searchQuery,jobData ,setJobData,filteredJobData}) {
+ 
+  
   console.log("useEffect - Initial render (Mounting)", jobData);
   useEffect(() => {
     jobTracker.getAll().then((response) => {
