@@ -24,7 +24,7 @@ function Form({ onClose, editMode, testData, filteredJobData, setJobData }) {
     editMode ? testData.notes : ""
   );
   const [updatedInterviewStage, setUpdatedInterviewStage] = useState(
-    editMode ? testData.interviewStage : []
+    editMode ? testData.interviewStage : ''
   );
 
   const handleSubmit = (e) => {
@@ -40,11 +40,12 @@ function Form({ onClose, editMode, testData, filteredJobData, setJobData }) {
     };
 
     jobTracker.createOne(body).then((response) => {
-      setJobData([...filteredJobData, response.data]);
-      console.log("setjob data", setJobData());
+    setJobData([...filteredJobData, response.data]);
+    onClose();
+     // console.log("setjob data", setJobData());
     });
 
-    //navigate("/");
+    navigate("/");
   };
 
   //  const updateJob = async (id) => {
