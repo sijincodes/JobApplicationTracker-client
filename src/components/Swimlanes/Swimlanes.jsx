@@ -10,7 +10,7 @@ function Swimlanes({ isSwimLane, setSearchQuery, searchQuery }) {
   const [jobData, setJobData] = useState([]);
   const filteredJobData = jobData.filter((elm) => {
     return (
-      elm.jobRole.toLowerCase().includes(searchQuery.toLowerCase())
+      elm.jobRole.toLowerCase().includes(searchQuery.toLowerCase())||elm.companyName.toLowerCase().includes(searchQuery.toLowerCase())
     );
   });
   console.log("useEffect - Initial render (Mounting)", jobData);
