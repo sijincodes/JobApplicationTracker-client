@@ -3,7 +3,7 @@
 This is an application, where the user can track all the jobs across the interview stages which, user has applied for efficiently.## Screenshots
 
 <kbd>
-<img src="https://drive.google.com/file/d/1k4tL5y6ibjGBjndPiJHCFUbG31EVTW9k/view?usp=sharing" alt="snapshot">
+<img src="https://res.cloudinary.com/djxzl8ay2/image/upload/v1673218750/JT/Screenshot_2023-01-08_at_11.29.25_PM_r2vpxr.png" alt="snapshot">
 </kbd>
 
 ## 🚀 Features
