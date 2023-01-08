@@ -34,8 +34,17 @@
   background-color: #E1D7C6;
   cursor: pointer;
 }
+.buttonCardContainer{
+  display: flex;
+  justify-content: space-between;
+}
 .button:hover {
-  width: 100%;
+  width: 50%;
   background: #ACCDD8;
+  color: black;
+}
+.deleteBtn:hover {
+  width: 60%;
+  background: #FF7B54;
   color: black;
 }

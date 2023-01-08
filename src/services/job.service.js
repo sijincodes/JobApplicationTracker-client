@@ -40,7 +40,7 @@ class JobTracker {
   }
 
   // DELETE /api/examples/:id
-  deleteProject = async (id) => {
+  deleteOne = async (id) => {
     return this.api.delete(`/job/${id}`);
   } 
 
