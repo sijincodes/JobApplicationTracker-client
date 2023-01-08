@@ -16,7 +16,11 @@ function App() {
       {/* <Navbar /> */}
 
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={
+            <IsPrivate>
+              <HomePage />
+            </IsPrivate>
+          } />
 
         <Route
           path="/profile"
