@@ -26,16 +26,16 @@
   
   }
   .cancelColor{
-    background-color: #7ca2b0;
+    background-color: #81CACF;
   }
   .saveColor{
-    background-color: #579BB1;
+    background-color: #277BC0;
   }
   
   /* Style the container */
   .containerForm{
     border-radius: 5px;
-    background-color: #E1D6C6;
+    background-color: #FFCB42;
     padding: 20px;
     position: fixed;
     height: 530px;
