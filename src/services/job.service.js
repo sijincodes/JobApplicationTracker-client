@@ -31,7 +31,7 @@ class JobTracker {
 
   // GET /api/examples/:id
   getOne = async (id) => {
-    return this.api.get(`/api/examples/${id}`);
+    return this.api.get(`/job/${id}`);
   }
 
   // PUT /api/examples/:id

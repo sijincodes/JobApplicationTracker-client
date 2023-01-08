@@ -55,9 +55,7 @@ function HomePage() {
       <SideBar isOpen={sidebarOpen} toggleSidebar={handleViewSidebar} />
       <Swimlanes
         isSwimLane={isSwimLane}
-        searchQuery={searchQuery}
-        setSearchQuery={setSearchQuery}
-        jobData={jobData}
+       
         setJobData={setJobData}
         filteredJobData={filteredJobData}
       />

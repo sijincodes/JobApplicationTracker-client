@@ -1,12 +1,12 @@
 import React from "react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+
 import ReactDOM from "react-dom";
 import jobTracker from "../../services/job.service";
 import "./Form.css";
 
 function Form({ onClose, editMode, testData, filteredJobData, setJobData }) {
-  const navigate = useNavigate();
+ 
 
   const [updatedJobRole, setUpdatedJobRole] = useState(
     editMode ? testData.jobRole : ""
@@ -24,12 +24,12 @@ function Form({ onClose, editMode, testData, filteredJobData, setJobData }) {
     editMode ? testData.notes : ""
   );
   const [updatedInterviewStage, setUpdatedInterviewStage] = useState(
-    editMode ? testData.interviewStage : ''
+    editMode ? testData.interviewStage : "Applied"
   );
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("inside handle submit");
+  
     const body = {
       jobRole: updatedJobRole,
       companyName: updatedCompanyName,
@@ -38,32 +38,32 @@ function Form({ onClose, editMode, testData, filteredJobData, setJobData }) {
       interviewStage: updatedInterviewStage,
       notes: updatedNotes,
     };
-
     jobTracker.createOne(body).then((response) => {
-    setJobData([...filteredJobData, response.data]);
-    onClose();
-     // console.log("setjob data", setJobData());
+      setJobData([...filteredJobData, response.data]);
+      onClose();
     });
-
-    navigate("/");
   };
-
-  //  const updateJob = async (id) => {
-  //   const body = {
-  //     jobRole: updatedJobRole,
-  //     companyName: updatedCompanyName,
-  //     jobUrl:updatedJobUrl,
-  //     salary:updatedSalary,
-  //     interviewStage:updatedInterviewStage,
-  //     notes:updatedNotes
-  //   };
-
-  //     jobTracker.updateOne(id,body).then((response) => {
-  //       setUpdatedJobRole(response.data.jobRole);
-
-  //     });
-
-  // };
+  const handleUpdateSubmit = async (e, id) => {
+    e.preventDefault();
+    
+    const body = {
+      jobRole: updatedJobRole,
+      companyName: updatedCompanyName,
+      jobUrl: updatedJobUrl,
+      salary: Number(updatedSalary),
+      interviewStage: updatedInterviewStage,
+      notes: updatedNotes,
+    };
+   
+    jobTracker.updateOne(id, body).then((response) => {
+      setJobData([
+        ...filteredJobData.filter((elm) => elm._id !== id),
+        response.data,
+      ]);
+     
+      onClose();
+    });
+  };
 
   return ReactDOM.createPortal(
     <div className="portal-overlay">
@@ -186,10 +186,15 @@ function Form({ onClose, editMode, testData, filteredJobData, setJobData }) {
               <div className="row btn">
                 <input
                   className="saveColor"
-                  type="submit"
-                  value="Save"
-                  onClick={handleSubmit}
-                />
+                 type="submit"
+                   value="Save"
+                  onClick={
+                    editMode
+                      ? (e) => handleUpdateSubmit(e, testData._id)
+                      : handleSubmit
+                  }
+               />
+                 
               </div>
             </div>
           </form>

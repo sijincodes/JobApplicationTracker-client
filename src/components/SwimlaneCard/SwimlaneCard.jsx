@@ -3,7 +3,7 @@ import Form from "../Form/Form";
 
 import "./SwimlaneCard.css";
 
-function SwimlaneCard({ testData, provided, snapshot, index, jobData}) {
+function SwimlaneCard({ testData, provided, snapshot, index, jobData,filteredJobData,setJobData}) {
   const [isForm,setIsForm] = useState(false);
   const onClose =()=>{
     setIsForm(false)
@@ -34,7 +34,7 @@ function SwimlaneCard({ testData, provided, snapshot, index, jobData}) {
           See More
         </button>
       </div>
-      {isForm && <Form onClose={onClose} editMode={true} testData={testData}/>}
+      {isForm && <Form onClose={onClose} editMode={true} testData={testData} filteredJobData={filteredJobData} setJobData={setJobData}/>}
     </>
   );
 }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 import SwimlaneCard from "../SwimlaneCard/SwimlaneCard";
@@ -6,15 +6,17 @@ import "./Swimlanes.css";
 
 import jobTracker from "../../services/job.service";
 
-function Swimlanes({ isSwimLane, setSearchQuery, searchQuery,jobData ,setJobData,filteredJobData}) {
- 
+function Swimlanes({
+  isSwimLane,
   
-  console.log("useEffect - Initial render (Mounting)", jobData);
+  setJobData,
+  filteredJobData,
+}) {
   useEffect(() => {
     jobTracker.getAll().then((response) => {
       setJobData(response.data);
     });
-  }, []);
+  }, [setJobData]);
   function onDragEnd(result) {
     const { source, destination, draggableId } = result;
 
@@ -66,6 +68,8 @@ function Swimlanes({ isSwimLane, setSearchQuery, searchQuery,jobData ,setJobData
                               testData={elm}
                               provided={provided}
                               snapshot={snapshot}
+                              filteredJobData={filteredJobData}
+                              setJobData={setJobData}
                             />
                           )}
                         </Draggable>
@@ -100,6 +104,8 @@ function Swimlanes({ isSwimLane, setSearchQuery, searchQuery,jobData ,setJobData
                               testData={elm}
                               provided={provided}
                               snapshot={snapshot}
+                              filteredJobData={filteredJobData}
+                              setJobData={setJobData}
                             />
                           )}
                         </Draggable>
@@ -136,6 +142,8 @@ function Swimlanes({ isSwimLane, setSearchQuery, searchQuery,jobData ,setJobData
                               testData={elm}
                               provided={provided}
                               snapshot={snapshot}
+                              filteredJobData={filteredJobData}
+                              setJobData={setJobData}
                             />
                           )}
                         </Draggable>
@@ -170,6 +178,8 @@ function Swimlanes({ isSwimLane, setSearchQuery, searchQuery,jobData ,setJobData
                               testData={elm}
                               provided={provided}
                               snapshot={snapshot}
+                              filteredJobData={filteredJobData}
+                              setJobData={setJobData}
                             />
                           )}
                         </Draggable>
@@ -204,6 +214,8 @@ function Swimlanes({ isSwimLane, setSearchQuery, searchQuery,jobData ,setJobData
                               testData={elm}
                               provided={provided}
                               snapshot={snapshot}
+                              filteredJobData={filteredJobData}
+                              setJobData={setJobData}
                             />
                           )}
                         </Draggable>
