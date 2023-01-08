@@ -1,12 +1,14 @@
 
 .card {
-  background: #ACCDD8;
+  background-color: #277BC0 !important;
   margin: 0.5rem 0;
   border-radius: 0.25rem;
+  
 }
-.card:hover {
-  background: #E1D7C6 !important;
+.card :hover {
+  background-color: #277BC0 !important;
 }
+
 
 .heading {
   font-size: 15px;
@@ -31,7 +33,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #E1D7C6;
+  background-color: #FFE69A !important;
   cursor: pointer;
 }
 .buttonCardContainer{
@@ -40,11 +42,11 @@
 }
 .button:hover {
   width: 50%;
-  background: #ACCDD8;
+  background: #C4DFAA !important;
   color: black;
 }
 .deleteBtn:hover {
   width: 60%;
-  background: #FF7B54;
+  background: #FF7B54 !important;
   color: black;
 }

@@ -77,6 +77,7 @@ function Form({ onClose, editMode, testData, filteredJobData, setJobData }) {
               <div className="col-75">
                 <input
                   type="text"
+                  className="jobFormText"
                   id="jobRole"
                   name="jobRole"
                   placeholder="Job Role"
@@ -91,6 +92,7 @@ function Form({ onClose, editMode, testData, filteredJobData, setJobData }) {
               </div>
               <div className="col-75">
                 <input
+                 className="jobFormText"
                   type="text"
                   id="company"
                   name="company"
@@ -107,6 +109,7 @@ function Form({ onClose, editMode, testData, filteredJobData, setJobData }) {
               <div className="col-75">
                 <input
                   type="text"
+                  className="jobFormText"
                   id="jobURL"
                   name="jobURL"
                   placeholder="Linkedin/Indeed Job post URL "
@@ -122,6 +125,7 @@ function Form({ onClose, editMode, testData, filteredJobData, setJobData }) {
               <div className="col-75">
                 <input
                   type="text"
+                  className="jobFormText"
                   id="salary"
                   name="salary"
                   placeholder="Salary Quoted by you "

@@ -42,8 +42,8 @@ function SwimlaneCard({
         style={getItemStyle(snapshot.isDragging, provided.draggableProps.style)}
       >
         <h1 className="heading">Job Role: {testData.jobRole}</h1>
-        <p className="desc">Company: {testData.companyName}</p>
-        <p>Tag</p>
+        <h2 className="desc">Company: {testData.companyName}</h2>
+       
         <div className="buttonCardContainer">
           <button className="button" onClick={seeMoreForm}>
             See More

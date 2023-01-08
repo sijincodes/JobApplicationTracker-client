@@ -31,12 +31,13 @@
     display: flex;
     flex-direction: column;
 }
-.formInnerContainer{
+.authformInnerContainer{
     padding-top: 10px;
 }
 .passwordDiv{
     padding-right: 25px;
 }
+
 .buttonForm{
     height: 35px;
     width: 100px;

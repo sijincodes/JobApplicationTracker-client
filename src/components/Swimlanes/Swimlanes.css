@@ -7,11 +7,14 @@
       .swimlanes__column {
       min-width: 15rem; /* this is what makes the concept legible when there are many swimlanes */
       flex: 1;  /* to keep everything equally sized */
-      background: #F2F2F3;  /* replace with casper color variable */
+      background: #FFCB42;  /* replace with casper color variable */
       padding: 0.5rem;
       border-radius: 0.5rem;
       margin: 0.5rem;
   
+    }
+    .swimlanes :hover {
+      background-color: #FFF4CF;
     }
     
     /*  nuke the ULs inherited margin and padding  */  

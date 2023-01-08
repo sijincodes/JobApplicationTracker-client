@@ -1,5 +1,5 @@
 .addJobButton{
-    background-color: #579BB1;
+    background-color: #277BC0;
     border: none;
     color: black;
     padding: 10px 20px;
@@ -13,5 +13,5 @@
 }
 
 .addJobButton:hover {
-    background-color: #E1D7C6;
+    background-color: #FFCB42;
   }

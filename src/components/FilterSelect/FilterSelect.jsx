@@ -29,8 +29,11 @@ function FilterSelect({ setIsSwimLane, isSwimLane }) {
         displayValue="key"
         style={{
           option: {
-            backgroundColor: "#ECE8DD",
+            backgroundColor: "#FFF4CF",
           },
+          placeholder:{color:"black"}
+          
+
         }}
         ref={multiselectRef}
         hideSelectedList

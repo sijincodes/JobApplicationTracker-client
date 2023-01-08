@@ -7,13 +7,13 @@ import "./SideBar.css";
 
 function SideBar({ isOpen, toggleSidebar }) {
   
-  const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
+  const { isLoggedIn,  logOutUser } = useContext(AuthContext);
   return (
     <>
       {isOpen && (
         <div className="sideContainer">
           <div className="sidebar open" style={{ paddingTop: "100px" }}>
-          <span style={{fontSize:'30px' ,color:"white"}}>Hi {user && user.name} </span>
+          {/* <span style={{fontSize:'30px' ,color:"black"}}>Hi {user && user.name} </span> */}
               <div className="btnContainerSideBar">
                 {isLoggedIn && (
                   <>
