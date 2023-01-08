@@ -1,71 +1,42 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# JobApplicationTracker-client
+<h1>Job Application Tracker</h1>
+<hr><p>This is an application, where the user can track all the jobs across the interview stages which, user has applied for efficiently.</p><h2>General Information</h2>
+<hr><ul>
+<li>Drag and Drop implemented for the job cards amongst the panes using MERN stack</li>
+</ul><ul>
+<li>Easy to keep track of all the jobs applied for, with individual details stored for each job applied.</li>
+</ul><h2>Technologies Used</h2>
+<hr><ul>
+<li>HTML</li>
+</ul><ul>
+<li>CSS</li>
+</ul><ul>
+<li>JavaScript</li>
+</ul><ul>
+<li>React</li>
+</ul><ul>
+<li>NodeJS</li>
+</ul><ul>
+<li>Mongo</li>
+</ul><h2>Features</h2>
+<hr><ul>
+<li>User can Sign Up &amp; Login to the Job Application Tracker</li>
+</ul><ul>
+<li>User can Add Job,Search for added Job Role &amp; Company</li>
+</ul><ul>
+<li>There are 5 panes based on the Interview stages : Applied, Technical Round,Non Technical Round,Rejected and Hired</li>
+</ul><ul>
+<li>User can filter the 5 panes , based on what they want to view</li>
+</ul><ul>
+<li>User can Drag and Drop the job Card added between the panes, based on their interview</li>
+</ul><ul>
+<li>User can Update the information on the job Card by clicking on See More button</li>
+</ul><ul>
+<li>Job can also be deleted between any stage of the interview by clicking on the Delete button</li>
+</ul><ul>
+<li>The Logout button is added on the sidebar</li>
+</ul><h2>Project Status</h2>
+<hr><p>Completed</p><h2>Improvements</h2>
+<hr><ul>
+<li>Implement unit test/component test</li>
+</ul><h2>Contact</h2>
+<hr><p><span style="margin-right: 30px;"></span><a href="https://www.linkedin.com/in/sijin-mathews/"><img target="_blank" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" style="width: 10%;"></a></p>
