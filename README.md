@@ -3,7 +3,7 @@
 This is a responsive application, where the user can track all the jobs across the interview stages which, user has applied for efficiently.## Screenshots
 
 <kbd>
-<img src="https://res.cloudinary.com/djxzl8ay2/image/upload/v1673218750/JT/Screenshot_2023-01-08_at_11.29.25_PM_r2vpxr.png" alt="snapshot">
+<img src="https://res.cloudinary.com/djxzl8ay2/image/upload/v1673255311/JT/Screenshot_2023-01-09_at_10.06.41_AM_joo23v.png" alt="snapshot">
 </kbd>
 
 ## 🚀 Features
