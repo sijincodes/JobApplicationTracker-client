@@ -1,6 +1,6 @@
 # Job Application Tracker
 
-This is an application, where the user can track all the jobs across the interview stages which, user has applied for efficiently.## Screenshots
+This is a responsive application, where the user can track all the jobs across the interview stages which, user has applied for efficiently.## Screenshots
 
 <kbd>
 <img src="https://res.cloudinary.com/djxzl8ay2/image/upload/v1673218750/JT/Screenshot_2023-01-08_at_11.29.25_PM_r2vpxr.png" alt="snapshot">
@@ -16,6 +16,7 @@ This is an application, where the user can track all the jobs across the intervi
 - User can Update the information on the job Card by clicking on See More button
 - Job can also be deleted between any stage of the interview by clicking on the Delete button
 - The Logout button is added on the sidebar
+- All devices friendly application!
 
  <br /> 
  
