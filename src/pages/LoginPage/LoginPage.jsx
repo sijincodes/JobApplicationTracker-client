@@ -72,7 +72,7 @@ function LoginPage() {
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-      <p style={{marginBottom:"0px"}}>Don't have an account yet?</p>
+      <p style={{marginBottom:"0px",color:"white"}}>Don't have an account yet?</p>
       <Link to={"/signup"} style={{color:"#678983" ,fontSize:"15px" }}> Sign Up </Link>
     </div>
     </div>
