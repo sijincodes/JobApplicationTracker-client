@@ -6,6 +6,11 @@ This is a responsive application, where the user can track all the jobs across t
 <img src="https://res.cloudinary.com/djxzl8ay2/image/upload/v1673255311/JT/Screenshot_2023-01-09_at_10.06.41_AM_joo23v.png" alt="snapshot">
 </kbd>
 
+<br/>
+
+## 🔥 Check out the application 
+https://job-application-tracker-sm.netlify.app
+
 ## 🚀 Features
 
 - User can Sign Up & Login to the Job Application Tracker
