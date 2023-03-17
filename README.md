@@ -29,7 +29,7 @@ https://job-application-tracker-sm.netlify.app
 
 - Implemented Drag and Drop
 
-## 💻 MERN stack
+## 💻 MERN stack,Cypress
 
 This is a Full-stack application using the MERN stack
 
@@ -44,4 +44,4 @@ This is a Full-stack application using the MERN stack
 
 ## ⏳ Roadmap
 
-- Implement Unit test and component test
+- Implement Unit test and component test ✅ - Cypress automation testing Integrated

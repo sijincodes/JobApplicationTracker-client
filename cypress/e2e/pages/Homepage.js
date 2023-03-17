@@ -1,0 +1,15 @@
+export const JOB_API = 'https://job-application-tracker-server.cyclic.app/job'
+export const ADD_JOB_FORM = ".containerForm"
+export const JOB_ROLE ="#jobRole"
+export const JOB_COMPANY = "#company"
+export const JOB_URL = "#jobURL"
+export const JOB_SALARY = "#salary"
+export const JOB_STAGE = "#stage"
+export const JOB_NOTES = '#Notes'
+export const FORM_SAVE_BUTTON = "input[value='Save']"
+export const FORM_CANCEL_BUTTON = "input[value='Cancel']"
+export const ADD_JOB_BUTTON = ".addJobButton"
+export const CARD_SEE_MORE_BUTTON = ".button"
+export const CARD_DELETE_BUTTON = ".deleteBtn"
+export const CARD_HEADING = ".heading"
+export const SWIMLANE_NON_TECHNICAL_ROUND = "div[data-rbd-droppable-id='Non Technical Round']"

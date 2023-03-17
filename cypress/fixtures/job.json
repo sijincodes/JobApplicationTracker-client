@@ -1,0 +1,11 @@
+{
+    "role" : "Test Role1",
+    "company" : "Test Company1",
+    "url" : "www.abc.com",
+    "salary" : "60000",
+    "technical_round_stage" : "Technical Round",
+    "notes" : "Test Notes",
+    "non_technical_round_stage" : "Non Technical Round",
+    "see_more_button_text" : "See More"
+
+}
