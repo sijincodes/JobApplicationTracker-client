@@ -24,15 +24,7 @@ import {
 
 describe("Homepage", () => {
   beforeEach(() => {
-    cy.visit(LOGIN_URL);
-    cy.fixture("user").then((user) => {
-      const email = user.email;
-      const password = user.password;
-
-      cy.get(EMAIL_INPUT).type(email);
-      cy.get(PASSWORD_INPUT).type(password);
-      cy.get(LOGIN_BUTTON).click();
-    });
+    cy.login()
   });
   it("Validate Add job Form", () => {
     cy.fixture("job").then((job) => {
