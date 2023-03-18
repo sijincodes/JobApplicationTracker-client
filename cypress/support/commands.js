@@ -4,6 +4,7 @@ import {
   PASSWORD_INPUT,
   LOGIN_BUTTON,
 } from "../e2e/pages/Login";
+import { JOB_API } from "../e2e/pages/Homepage";
 
 Cypress.Commands.add("login", () => {
   cy.intercept("GET", JOB_API).as("fetchJobs");
