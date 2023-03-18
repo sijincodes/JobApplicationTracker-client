@@ -13,5 +13,9 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v5.3.1 # use the explicit version number
         with:
+          record: true
           build: npm run build
           start: npm start
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
